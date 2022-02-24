@@ -2,6 +2,7 @@ package SirQuizALot;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,16 +24,41 @@ public class SirQuizALotController {
     @PostMapping("/")
     public String postLoginPage(HttpSession session, @RequestParam String username, @RequestParam String password) {
 
-        if (service.isUser(username, password))
+        if (service.isUser(username, password)) {
+        session.setAttribute("username", username);
             return "redirect:/home";
-        else
+        }
+        else {
             return "redirect:/";
+        }
     }
 
     @GetMapping("/home")
-    public String getHomePage() {
-        return "home";
+    public String getHomePage(HttpSession session) {
+      String username = (String) session.getAttribute("username");
+      if (username!=null) {
+          return "home";
+      }
+      else
+          return "redirect :/";
     }
 
+    @GetMapping("/logout")
+    public String logout (HttpSession session) {
+        session.invalidate();
+        return "login";
+    }
 
+    @GetMapping("/question")
+    public String getQuestionPage(HttpSession session, Model model) {
+        String username = (String) session.getAttribute("username");
+
+        model.addAttribute("question", service.getQuestion());
+
+        if (username != null) {
+            return "question";
+        }
+        else
+            return "redirect:/";
+    }
 }
