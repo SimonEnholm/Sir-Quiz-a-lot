@@ -7,16 +7,15 @@
     <title>Sir Quiz-A-Lot</title>
 </head>
 <body>
+
  <div class="container">
-    <div class="d-flex bg-primary flex-wrap justify-content-center py-3 mb-4 border-bottom">
-        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-            <svg class="bi me-2" width="auto" height="auto"><use xlink:href="#bootstrap"/></svg>
-            <span><img src="/static/FullLogoWhite.png" th:src="'/FullLogoWhite.png'" alt="loggo" width="200px" height="auto"></span>
-        </a>
+    <div class="d-flex flex-wrap justify-content-center py-3 mb-4">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"></a>
     </div>
 </div>
 
  <style>
+
       .form-signin {
  width: 100%;
  max-width: 330px;
@@ -47,13 +46,12 @@
  border-top-right-radius: 0;
  }
  </style>
-
+<div class="form-signin">
+ <img src="/static/PleaseSignInLogo.png" th:src="'/PleaseSignInLogo.png'" alt="" width="350" height="auto">
+</div>
 
 <form class="form-signin" method="POST" action="/">
-    <!--    <img src="/static/FullLogoWhite.png" th:src="'/FullLogoWhite.png'" alt="" width="350" height="auto"> -->
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
         <input class="form-control" type="text" id="inputUsername" placeholder="Username" name="username">
-        <!--<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">-->
     <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required="">
     <div class="checkbox mb-3">
         <label>
@@ -63,5 +61,7 @@
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     <p class="mt-5 mb-3 text-muted">© Sir.QuizALot 2022</p>
 </form>
+
+
 </body>
 </html>
