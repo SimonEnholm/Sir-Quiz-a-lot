@@ -61,4 +61,10 @@ public class SirQuizALotController {
         else
             return "redirect:/";
     }
+
+    @PostMapping("/XXXX")
+    public String addUser(@RequestParam String username, @RequestParam String password){
+
+        return "";
+    }
 }
