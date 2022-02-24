@@ -27,9 +27,9 @@ public class QuestionRepo {
                 3); // 1029
         Questions q3 = new Questions(3,
                 "Hur länge varade världshistoriens kortaste krig mellan Storbritannien och Zanzibar?",
-                "7 min",
-                "2,5 timme",
-                "38 min",
+                "7 minuter",
+                "124 minuter",
+                "38 minuter",
                 3); // 38 min
 
         qList.add(q1);
@@ -39,6 +39,10 @@ public class QuestionRepo {
 
     private Questions getQuestion() {
         return qList.get(ThreadLocalRandom.current().nextInt(0, qList.size()));
+    }
+
+    public List<Questions> getAll() {
+        return qList;
     }
 
     public List<Questions> getListOfQuestions(int sizeOfList) {

@@ -5,12 +5,14 @@ public class User {
     private String username;
     private String password;
     private boolean isAdmin;
+    private int point;
 
     public User(int id, String username, String password, boolean isAdmin) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.isAdmin = isAdmin;
+        this.point = 0;
     }
 
     public User(String username, String password, boolean isAdmin) {
@@ -33,5 +35,13 @@ public class User {
 
     public boolean isAdmin() {
         return isAdmin;
+    }
+
+    public int getPoint() {
+        return point;
+    }
+
+    public void addPoint() {
+        point++;
     }
 }
