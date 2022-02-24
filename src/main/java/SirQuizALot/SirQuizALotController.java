@@ -25,26 +25,27 @@ public class SirQuizALotController {
     public String postLoginPage(HttpSession session, @RequestParam String username, @RequestParam String password) {
 
         if (service.isUser(username, password)) {
-        session.setAttribute("username", username);
+            session.setAttribute("username", username);
             return "redirect:/home";
-        }
-        else {
+        } else {
             return "redirect:/";
         }
     }
 
     @GetMapping("/home")
     public String getHomePage(HttpSession session) {
-      String username = (String) session.getAttribute("username");
-      if (username!=null) {
-          return "home";
-      }
-      else
-          return "redirect :/";
+        String username = (String) session.getAttribute("username");
+        if (username != null && service.isAdmin(username)==true) {
+            return "admin";
+        }
+        else if (username != null && service.isAdmin(username)==false) {
+            return "home";
+        } else
+            return "redirect :/";
     }
 
     @GetMapping("/logout")
-    public String logout (HttpSession session) {
+    public String logout(HttpSession session) {
         session.invalidate();
         return "login";
     }
@@ -57,8 +58,9 @@ public class SirQuizALotController {
 
         if (username != null) {
             return "question";
-        }
-        else
+        } else
             return "redirect:/";
     }
+
+
 }
