@@ -8,21 +8,22 @@
 </head>
 <body>
 <h1>Nice looking login :)</h1>
-<form method="POST" action="/">
+<!--<form method="POST" action="/">
     <p>Username: <input type="text" name="username"></p>
     <p>Password: <input type="password" name="password"></p>
     <p><input type="submit"></p>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-</form>
+</form>-->
 
 
-<form class="form-signin">
+<form class="form-signin" method="POST" action="/">
     <img src="/static/FullLogoWhite.png" th:src="'/FullLogoWhite.png'" alt="" width="646" height="595">
     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail" class="sr-only">Email address</label>
-    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+    <label for="inputUsername" class="sr-only">Email address</label>
+    <input type="text" id="inputUsername" class="form-control" placeholder="Username" name="username">
+    <!--<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">-->
     <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required="">
     <div class="checkbox mb-3">
         <label>
             <input type="checkbox" value="remember-me"> Remember me
