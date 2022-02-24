@@ -39,5 +39,15 @@ public class SirQuizALotService {
         questionsList = questionRepo.getListOfQuestions(3);
     }
 
+    public boolean isAdmin(String username) {
+        List<User> userList = userRepo.getUserList();
 
+        for (User existingUser : userList) {
+            if ( existingUser.getUsername().equalsIgnoreCase(username) && existingUser.isAdmin()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
+
