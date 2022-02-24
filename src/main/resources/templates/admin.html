@@ -30,10 +30,10 @@
 <div class="b-example-divider"></div>
 
 <div class="container col-xl-8 px-4 py-5">
-    <h1 class="display-5 fw-bold lh-1 mb-3">Välkommen NAMEPLACEHOLDER</h1>
+    <h1 class="display-5 fw-bold lh-1 mb-3" th:text="'Välkommen ' + ${session.username} + '!'">Välkommen NAMEPLACEHOLDER</h1>
     <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
         <div class="col-10 col-sm-8 col-lg-6">
-            <img src="/static/Champion.png" th:src="'/Champion.png'" class="d-block mx-lg-auto img-fluid"
+            <img src="/static/LogoWithoutText.png" th:src="'/LogoWithoutText.png'" class="d-block mx-lg-auto img-fluid"
                  alt="Winners Cup" width="700" height="500" loading="lazy">
         </div>
         <div class="col-lg-6">
