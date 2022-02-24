@@ -37,7 +37,21 @@ public class QuestionRepo {
         qList.add(q3);
     }
 
-    public Questions getQuestion() {
+    private Questions getQuestion() {
         return qList.get(ThreadLocalRandom.current().nextInt(0, qList.size()));
+    }
+
+    public List<Questions> getListOfQuestions(int sizeOfList) {
+        List<Questions> questionsList = new ArrayList<>();
+        questionsList.add(getQuestion());
+
+        do {
+            Questions question = getQuestion();
+            for (int i=0; i<questionsList.size(); i++) {
+                if (question.getId() != questionsList.get(i).getId() && i == questionsList.size()-1)
+                    questionsList.add(question);
+            }
+        } while (questionsList.size() < sizeOfList);
+        return questionsList;
     }
 }
