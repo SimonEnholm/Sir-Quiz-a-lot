@@ -16,6 +16,7 @@ public class UserRepo {
 
         userList.add(admin);
         userList.add(user);
+        userList.add(new User(3,"GöranPersson", "allaskamed", false));
     }
 
     public List<User> getUserList() {
