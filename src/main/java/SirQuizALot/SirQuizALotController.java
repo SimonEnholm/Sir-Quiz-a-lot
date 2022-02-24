@@ -65,6 +65,6 @@ public class SirQuizALotController {
     @PostMapping("/XXXX")
     public String addUser(@RequestParam String username, @RequestParam String password){
 
-        return "";
+        return "xxx";
     }
 }
