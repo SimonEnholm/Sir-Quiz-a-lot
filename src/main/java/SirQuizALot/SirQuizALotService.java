@@ -50,7 +50,8 @@ public class SirQuizALotService {
         return false;
     }
     public void createUser (String username, String password)  {
-        User  user1 = new User(username, password, false);
+        User user1 = new User(username, password, false);
+       userRepo.addUser(user1);
 
 
     }

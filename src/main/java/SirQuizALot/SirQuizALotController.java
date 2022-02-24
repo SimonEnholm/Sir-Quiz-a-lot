@@ -15,6 +15,8 @@ public class SirQuizALotController {
 
     @Autowired
     SirQuizALotService service;
+    @Autowired
+    UserRepo userRepo;
 
     @GetMapping("/")
     public String getLoginPage() {
@@ -35,10 +37,9 @@ public class SirQuizALotController {
     @GetMapping("/home")
     public String getHomePage(HttpSession session) {
         String username = (String) session.getAttribute("username");
-        if (username != null && service.isAdmin(username)==true) {
+        if (username != null && service.isAdmin(username) == true) {
             return "admin";
-        }
-        else if (username != null && service.isAdmin(username)==false) {
+        } else if (username != null && service.isAdmin(username) == false) {
             return "home";
         } else
             return "redirect :/";
@@ -62,9 +63,14 @@ public class SirQuizALotController {
             return "redirect:/";
     }
 
-    @PostMapping("/XXXX")
-    public String addUser(@RequestParam String username, @RequestParam String password){
+    @GetMapping("/newaccount")
+    public String newAccount() {
+        return "NewAccount";
+    }
 
-        return "xxx";
+    @PostMapping("/newaccount")
+    public String addUser(@RequestParam String username, @RequestParam String password) {
+        service.createUser(username, password);
+        return "redirect:/";
     }
 }

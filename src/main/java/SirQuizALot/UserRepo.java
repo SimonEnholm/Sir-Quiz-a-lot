@@ -2,7 +2,9 @@ package SirQuizALot;
 
 import org.springframework.stereotype.Service;
 
+import java.sql.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -22,6 +24,11 @@ public class UserRepo {
         return userList;
     }
 
+    public void addUser(User user) {
+        userList.add(user);
+    }
 }
+
+
 
 
