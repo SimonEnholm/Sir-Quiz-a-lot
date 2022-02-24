@@ -23,15 +23,22 @@ public class SirQuizALotController {
     @PostMapping("/")
     public String postLoginPage(HttpSession session, @RequestParam String username, @RequestParam String password) {
 
-        if (service.isUser(username, password))
+        if (service.isUser(username, password)) {
+        session.setAttribute("username", username);
             return "redirect:/home";
-        else
-            return "redirect:/";
+        }
+        else {
+            return "redirect:/";}
     }
 
     @GetMapping("/home")
-    public String getHomePage() {
-        return "home";
+    public String getHomePage(HttpSession session) {
+      String username = (String) session.getAttribute("username");
+      if (username!=null){
+
+        return "home"; }
+      else
+      return "redirect :/";
     }
 
 
