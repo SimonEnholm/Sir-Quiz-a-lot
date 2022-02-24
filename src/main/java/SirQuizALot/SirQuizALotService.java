@@ -11,6 +11,9 @@ public class SirQuizALotService {
     @Autowired
     UserRepo userRepo;
 
+    @Autowired
+    QuestionRepo questionRepo;
+
     public boolean isUser(String username, String password) {
         List<User> userList = userRepo.getUserList();
 
@@ -21,4 +24,10 @@ public class SirQuizALotService {
         }
         return false;
     }
+
+    public Questions getQuestion() {
+       return questionRepo.getQuestion();
+    }
+
+
 }
