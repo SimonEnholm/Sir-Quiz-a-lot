@@ -43,6 +43,12 @@ public class SirQuizALotController {
           return "redirect :/";
     }
 
+    @GetMapping("/logout")
+    public String logout (HttpSession session) {
+        session.invalidate();
+        return "login";
+    }
+
     @GetMapping("/question")
     public String getQuestionPage(HttpSession session, Model model) {
         String username = (String) session.getAttribute("username");
