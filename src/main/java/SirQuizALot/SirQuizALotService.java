@@ -3,6 +3,7 @@ package SirQuizALot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -13,6 +14,8 @@ public class SirQuizALotService {
 
     @Autowired
     QuestionRepo questionRepo;
+
+    private List<Questions> questionsList = new ArrayList<>();
 
     public boolean isUser(String username, String password) {
         List<User> userList = userRepo.getUserList();
@@ -26,7 +29,14 @@ public class SirQuizALotService {
     }
 
     public Questions getQuestion() {
-       return questionRepo.getQuestion();
+        if (questionsList.size() == 0)
+            getListOfQuestions();
+
+        return questionsList.remove(0);
+    }
+
+    private void getListOfQuestions() {
+        questionsList = questionRepo.getListOfQuestions(3);
     }
 
 
