@@ -52,6 +52,7 @@ public class SirQuizALotController {
         } else
             return "redirect:/";
     }
+
     @GetMapping("/admin")
     public String getAdminPage(HttpSession session, Model model) {
         String username = (String) session.getAttribute("username");
@@ -93,17 +94,21 @@ public class SirQuizALotController {
         } else
             return "redirect:/";
     }
-    @PostMapping("/question")
-    public String nextQuestion (HttpSession session, @RequestParam Integer option){
 
-        String correctOrWrong = service.checkAnswer((String) session.getAttribute("username"),
-                (Integer)session.getAttribute("questionId"),
-                option);
-        return "redirect:/question";
-    }
+    @PostMapping("/question")
+
+        public String nextQuestion (HttpSession session, @RequestParam Integer option){
+
+            String correctOrWrong = service.checkAnswer((String) session.getAttribute("username"),
+                    (Integer) session.getAttribute("questionId"),
+                    option);
+            return "redirect:/question";
+        }
+
 
     @GetMapping("/newaccount")
     public String newAccount() {
+
         return "NewAccount";
     }
 
@@ -124,13 +129,31 @@ public class SirQuizALotController {
     }
 
     @GetMapping("/newquestion")
-    public String newQuestion() {
+    public String newQuestion(HttpSession session) {
+        String username = (String) session.getAttribute("username");
+
         return "newQuestion";
     }
 
     @PostMapping("/newquestion")
-    public String addQuestion(@RequestParam int id, @RequestParam String question, @RequestParam String alternative1, @RequestParam String alternative2, @RequestParam String alternative3, @RequestParam int answer) {
+    public String addQuestion(@RequestParam int id, @RequestParam String question, @RequestParam String alternative1, @RequestParam String alternative2, @RequestParam String alternative3, @RequestParam int answer, HttpSession session) {
+        String username = (String) session.getAttribute("username");
         service.createQuestion(id, question, alternative1, alternative2, alternative3, answer);
         return "redirect:/admin";
+    }
+
+    @GetMapping("/requestnewquestion")
+    public String requestQuestion() {
+        return "reqQuest";
+    }
+
+    @PostMapping("/requestnewquestion")
+    public String requestQuestion2(@RequestParam int id, @RequestParam String question, @RequestParam String alt1, @RequestParam String alt2, @RequestParam String alt3, @RequestParam int answer) {
+        service.questionRequest(id, question, alt1, alt2, alt3, answer);
+        return "redirect:/home";
+
+
+
+
     }
 }

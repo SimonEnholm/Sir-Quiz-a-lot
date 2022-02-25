@@ -1,6 +1,7 @@
 package SirQuizALot;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.server.DelegatingServerHttpResponse;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -109,12 +110,16 @@ public class SirQuizALotService {
         return questionRepo.getAll();
     }
 
+    public void questionRequest (int id, String question, String alt1, String alt2, String alt3, int answer) {
+        Questions requestQuestion = new Questions(id, question, alt1, alt2, alt3, answer);
+        questionRepo.addRequest(requestQuestion);
+    }
     public User getUser(String username) {
         List<User> userList = userRepo.getUserList();
         for (User user : userList)
-            if (user.getUsername().equalsIgnoreCase(username))
-                return user;
-        return null;
-    }
+            if (user.getUsername().equalsIgnoreCase(username)) {
+                return user; }
+
+        return null; }
 }
 
