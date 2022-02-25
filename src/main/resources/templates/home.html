@@ -47,31 +47,11 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>ThisTheGuy</td>
-                    <td>25600</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>IsThisRight</td>
-                    <td>25500</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Dudette</td>
-                    <td>24500</td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>SomeDude</td>
-                    <td>24300</td>
-                </tr>
-                <tr>
-                    <th scope="row">5</th>
-                    <td>WhoDis</td>
-                    <td>24200</td>
-                </tr>
+                    <tr th:each="score : ${highscore}">
+                        <th scope="row" th:text="${scoreStat.index}+1"></th>
+                        <td th:text="${highscore[scoreStat.index][0]}"></td>
+                        <td th:text="${highscore[scoreStat.index][1]}"></td>
+                    </tr>
                 </tbody>
             </table>
             </p>
