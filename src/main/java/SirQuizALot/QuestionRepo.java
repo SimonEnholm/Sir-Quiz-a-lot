@@ -15,22 +15,22 @@ public class QuestionRepo {
 
     public QuestionRepo() {
         Questions q1 = new Questions(1,
-                "Vilket land konsumerar mest Coca Cola per invånare?",
-                "Sverige",
+                "Which country consumes most Coca Cola per capita?",
+                "Sweden",
                 "U.S.A.",
-                "Island",
+                "Iceland",
                 3);
         Questions q2 = new Questions(2,
-                "Hur många rutor finns det på ett vanligt rutigt A4 papper?",
+                "How many squares are there in a squared A4 papper?",
                 "1027",
                 "1028",
                 "1029",
                 3); // 1029
         Questions q3 = new Questions(3,
-                "Hur länge varade världshistoriens kortaste krig mellan Storbritannien och Zanzibar?",
-                "7 minuter",
-                "124 minuter",
-                "38 minuter",
+                "How long was the duration of the shortest war in recorded history which was between United Kingdom and Zanzibar?",
+                "7 minutes",
+                "124 minutes",
+                "38 minutes",
                 3); // 38 min
 
         qList.add(q1);
@@ -38,46 +38,46 @@ public class QuestionRepo {
         qList.add(q3);
 
         qList.add(new Questions(4,
-                "Vad sägs det att Julius Ceasar sade när han korsade floden Rubicon?",
+                "What did Julius Ceasar say when he was crossing the Rubicon River?",
                 "Alea iacta est.",
                 "Veni, Vidi, Vici.",
                 "Carpe diem.",
                 1));
         qList.add(new Questions(5,
-                "Sagohjälten Hjalmar den hugstore dräptes av detta magiska svärd:",
+                "Which of the following is the magic sword that killed Hjalmar the Swedish protagonist who figures in the Hervarar saga:",
                 "Excalibur",
                 "Tyrfing",
                 "Durendal",
                 2));
         qList.add(new Questions(6,
-                "Vilket år sändes Melodikrysset för första gången?",
+                "What year was 'Melodikrysset' aired for the first time?",
                 "1965",
                 "1975",
                 "1985",
                 1));
         qList.add(new Questions(7,
-                "Vad är Kalle Ankas fullständiga namn?",
+                "What is Donald Ducks full name in Swedish?",
                 "Kalle Harald Anka",
                 "Karl Erik Anka",
                 "Karl Magnus Anka",
                 3));
         qList.add(new Questions(8,
-                "I vilket nuvarande land ligger Jagellonska universitetet?",
-                "Tjeckien",
-                "Ungern",
-                "Polen",
+                "In which country is the Jagiellonian University located?",
+                "Cxech Republic",
+                "Hungary",
+                "Poland",
                 3));
         qList.add(new Questions(9,
-                "Efter ett korståg till det heliga landet så valde den norska kungen Sigurd Jorsalafare att dra ut på korståg till detta landskap:",
+                "Which of the following landscapes did the Norwegian king Sigurd Jorsalafare, known as Sigurd the Crusader chose to go on a crusade to after the crusade to the Holy Lands:",
                 "Småland",
                 "Lappland",
                 "Gotland",
                 1));
         qList.add(new Questions(10,
-                "Fasanön är en obebodd ö som ägs av två länder men administreras av ett land i taget, halvårsvis. Mellan vilka länder?",
-                "Grekland och Turkiet",
-                "Spanien och Frankrike",
-                "Thailand och Kambodja",
+                "Pheasant Island is an uninhabitated island between two countries and whose administrations alternates between the two countries. Which two countries are these?",
+                "Greece and Turkiye",
+                "Spain and France",
+                "Thailand och Cambodia",
                 2));
 
     }
