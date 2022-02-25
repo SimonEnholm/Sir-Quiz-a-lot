@@ -38,11 +38,22 @@ public class SirQuizALotController {
     public String getHomePage(HttpSession session, Model model) {
         String username = (String) session.getAttribute("username");
         if (username != null && service.isAdmin(username) == true) {
+            return "redirect:/admin";
+        } else if (username != null && service.isAdmin(username) == false) {
+            model.addAttribute("highscore", service.getHighscoreList());
+            return "home";
+        } else
+            return "redirect:/";
+    }
+    @GetMapping("/admin")
+    public String getAdminPage(HttpSession session, Model model) {
+        String username = (String) session.getAttribute("username");
+        if (username != null && service.isAdmin(username) == true) {
             model.addAttribute("questions", service.getAllQuestions());
             return "admin";
         } else if (username != null && service.isAdmin(username) == false) {
             model.addAttribute("highscore", service.getHighscoreList());
-            return "home";
+            return "redirect:/home";
         } else
             return "redirect:/";
     }
@@ -95,6 +106,6 @@ public class SirQuizALotController {
     @PostMapping("/newquestion")
     public String addQuestion(@RequestParam int id, @RequestParam String question, @RequestParam String alternative1, @RequestParam String alternative2, @RequestParam String alternative3, @RequestParam int answer) {
         service.createQuestion(id, question, alternative1, alternative2, alternative3, answer);
-        return "admin";
+        return "redirect:/admin";
     }
 }
