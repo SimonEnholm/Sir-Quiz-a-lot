@@ -95,5 +95,9 @@ public class SirQuizALotService {
         Questions questions = new Questions(id, question, alt1, alt2,alt3, answer);
         questionRepo.addQuestion(questions);
     }
+
+    public List<Questions> getAllQuestions() {
+        return questionRepo.getAll();
+    }
 }
 
