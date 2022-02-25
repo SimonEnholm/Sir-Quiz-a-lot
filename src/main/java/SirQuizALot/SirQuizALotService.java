@@ -110,8 +110,9 @@ public class SirQuizALotService {
     }
 
     public void questionRequest (int id, String question, String alt1, String alt2, String alt3, int answer) {
-    Questions requestQuestion = new Questions(id, question, alt1, alt2, alt3, answer);
-    questionRepo.addRequest(requestQuestion);
+        Questions requestQuestion = new Questions(id, question, alt1, alt2, alt3, answer);
+        questionRepo.addRequest(requestQuestion);
+    }
 
     public User getUser(String username) {
         List<User> userList = userRepo.getUserList();
