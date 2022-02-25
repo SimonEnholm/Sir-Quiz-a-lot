@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="../static/style.css" th:href="'/style.css'">
     <title>Sir Quiz-A-Lot</title>
 </head>
-<h1> Super admin sida!!</h1>
 <div class="container">
     <header class="d-flex bg-primary flex-wrap justify-content-center py-3 mb-4 border-bottom">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -30,10 +29,10 @@
 <div class="b-example-divider"></div>
 
 <div class="container col-xl-8 px-4 py-5">
-    <h1 class="display-5 fw-bold lh-1 mb-3" th:text="'Välkommen ' + ${session.username} + '!'">Välkommen NAMEPLACEHOLDER</h1>
+    <h1 class="display-5 fw-bold lh-1 mb-3" th:text="'Välkommen ' + ${session.username} + '!'"></h1>
     <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
         <div class="col-10 col-sm-8 col-lg-6">
-            <img src="/static/LogoWithoutText.png" th:src="'/LogoWithoutText.png'" class="d-block mx-lg-auto img-fluid"
+            <img src="/static/Champion.png" th:src="'/Champion.png'" class="d-block mx-lg-auto img-fluid"
                  alt="Winners Cup" width="700" height="500" loading="lazy">
         </div>
         <div class="col-lg-6">
@@ -79,6 +78,7 @@
         </div>
     </div>
 </div>
+<a href="/newquestion">
 
 <div class="container bg-secondary">
     <div class="container col-xl-8 px-4 py-5">
@@ -88,18 +88,42 @@
                      alt="Winners Cup" width="700" height="500" loading="lazy">
             </div>
             <div class="col-lg-6">
-                <h1 class="display-5 fw-bold lh-1 mb-3">Starta ett Quiz</h1>
+                <h1 class="display-5 fw-bold lh-1 mb-3">Lägg till en ny fråga</h1>
             </div>
         </div>
     </div>
 </div>
 
-
+<div class="container p-5">
+    <div class="row g-5 justify-content-center">
+        <div class="col-4">
+            <div class="rounded p-5 border bg-warning">
+                <img src="/static/RedButton.png" th:src="'/RedButton.png'" class="d-block mx-lg-auto img-fluid"
+                     alt="Questionmark" width="700" height="500" loading="lazy">Lämna förslag på frågor
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="rounded p-5 border bg-success"><img src="/static/GreenButton.png" th:src="'/GreenButton.png'"
+                                                            class="d-block mx-lg-auto img-fluid"
+                                                            alt="Questionmark" width="700" height="500" loading="lazy">Se
+                statistik
+            </div>
+        </div>
+    </div>
+</div>
 
 <body>
-<h1>Fina fisken du kom in :DDDD</h1>
-<p th:text="'Logged in as player: ' + ${session.username}"></p>
-<a href="/logout">Logout</a>
-
+<div class="row justify-content-center">
+    <div>
+        <div class="d-grid gap-2 col-2 mx-auto">
+            <button class="btn btn-primary" type="button">
+                <a href="/logout" class="nav-link link-light">Logout</a></button>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="container p-5"></div>
+</div>
 </body>
 </html>
