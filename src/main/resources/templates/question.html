@@ -25,9 +25,9 @@
     <div id="question-box" th:text="${question.question}"> Question....</div>
 </div>
     <div class="row justify-content-center">
-        <button class="option-button" type="submit" th:text="${question.option1}" > Option 1  </button>
-        <button class="option-button" type="submit" th:text="${question.option2}"> Option 2  </button>
-        <button class="option-button" type="submit" th:text="${question.option3}"> Option 3  </button>
+        <button class="option-button" type="submit" th:text="${question.option1}" value="1" name="option" > Option 1  </button>
+        <button class="option-button" type="submit" th:text="${question.option2}" value="2" name="option"> Option 2  </button>
+        <button class="option-button" type="submit" th:text="${question.option3}" value="3" name="option"> Option 3  </button>
     </div>
     <div id="end-button"> END TEST
     </div>
