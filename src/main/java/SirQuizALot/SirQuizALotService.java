@@ -39,7 +39,7 @@ public class SirQuizALotService {
     }
 
     private void getListOfQuestions() {
-        questionsList = questionRepo.getListOfQuestions(3);
+        questionsList = questionRepo.getListOfQuestions(5);
     }
 
     public List<List<Integer>> getQuestionFrequencies() {
@@ -47,9 +47,17 @@ public class SirQuizALotService {
         return statistics.getQuestionFrequencies();
     }
 
-    public int[][] getHighscoreList() {
+    public List<List<String>> getHighscoreList() {
         // 10 element lång lista på formen [UserId, Score]
-        return statistics.getHighscoreList();
+        int[][] highscore = statistics.getHighscoreList();
+        List<User> allUsers = userRepo.getUserList();
+        List<List<String>> highscoreList = new ArrayList<>();
+        for (int i = 0; i < highscore.length; i++) {
+            for (User user : allUsers)
+                if (user.getId() == highscore[i][0])
+                    highscoreList.add(List.of(user.getUsername(),Integer.toString(highscore[i][1])));
+        }
+        return highscoreList;
     }
 
     public String checkAnswer(String username, int questionId, int answer) {

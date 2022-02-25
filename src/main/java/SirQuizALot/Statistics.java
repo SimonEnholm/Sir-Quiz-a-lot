@@ -9,7 +9,7 @@ import java.util.List;
 public class Statistics {
 
     List<List<Integer>> questionFrequencies = new ArrayList<List<Integer>>();
-    int[][] highscoreList = new int[10][2]; // [UserId, Score]
+    int[][] highscoreList = new int[5][2]; // [UserId, Score]
 
     public Statistics (QuestionRepo questionRepo) { // todo maybe move into question&questionRepo class
         // Add a list of [id, option1Freq, option2Freq, option3Freq]
