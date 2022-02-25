@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class SirQuizALotController {
@@ -41,6 +42,7 @@ public class SirQuizALotController {
             return "redirect:/admin";
         } else if (username != null && service.isAdmin(username) == false) {
             model.addAttribute("highscore", service.getHighscoreList());
+            session.setAttribute("quiz", service.getListOfQuestions());
             return "home";
         } else
             return "redirect:/";
@@ -68,15 +70,32 @@ public class SirQuizALotController {
     public String getQuestionPage(HttpSession session, Model model) {
         String username = (String) session.getAttribute("username");
 
-        model.addAttribute("question", service.getQuestion());
+        List<Questions> questionsList = (List<Questions>) session.getAttribute("quiz");
+        boolean quizOver = false;
+        //Questions questions = questionsList.remove(0);
+        if (questionsList.size() == 0)
+            quizOver = true;
+        else {
+            Questions questions = questionsList.remove(0);
+            model.addAttribute("question", questions);
+            session.setAttribute("questionId",questions.getId());
+            session.setAttribute("quiz", questionsList);
+        }
 
-        if (username != null) {
+
+        if (username != null && !quizOver) { //listsize > 0) {
             return "question";
+        }  else if (username != null && quizOver) {
+            return "redirect:/quizend";
         } else
             return "redirect:/";
     }
     @PostMapping("/question")
-    public String nextQuestion (){
+    public String nextQuestion (HttpSession session, @RequestParam Integer option){
+
+        String correctOrWrong = service.checkAnswer((String) session.getAttribute("username"),
+                (Integer)session.getAttribute("questionId"),
+                option);
         return "redirect:/question";
     }
 
@@ -95,6 +114,7 @@ public class SirQuizALotController {
     public String quizend(HttpSession session, Model model) {
         String username = (String) session.getAttribute("username");
         model.addAttribute("username", username);
+        service.addToHighscoreList(username);
         return "highScore";
     }
 
