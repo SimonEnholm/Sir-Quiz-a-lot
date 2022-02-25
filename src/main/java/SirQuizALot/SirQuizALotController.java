@@ -114,7 +114,9 @@ public class SirQuizALotController {
     public String quizend(HttpSession session, Model model) {
         String username = (String) session.getAttribute("username");
         model.addAttribute("username", username);
+        model.addAttribute("points",service.getUser(username).getPoint());
         service.addToHighscoreList(username);
+        model.addAttribute("highscore", service.getHighscoreList());
         return "highScore";
     }
 

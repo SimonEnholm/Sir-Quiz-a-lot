@@ -108,5 +108,13 @@ public class SirQuizALotService {
     public List<Questions> getAllQuestions() {
         return questionRepo.getAll();
     }
+
+    public User getUser(String username) {
+        List<User> userList = userRepo.getUserList();
+        for (User user : userList)
+            if (user.getUsername().equalsIgnoreCase(username))
+                return user;
+        return null;
+    }
 }
 
