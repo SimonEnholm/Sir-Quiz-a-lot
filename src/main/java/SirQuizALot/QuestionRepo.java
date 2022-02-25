@@ -63,7 +63,7 @@ public class QuestionRepo {
                 3));
         qList.add(new Questions(8,
                 "In which country is the Jagiellonian University located?",
-                "Cxech Republic",
+                "Czech Republic",
                 "Hungary",
                 "Poland",
                 3));
