@@ -4,6 +4,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -95,6 +96,11 @@ public class QuestionRepo {
         for (int i = 0; i < sizeOfList; i++) {
             questionsList.add(copyList.remove(ThreadLocalRandom.current().nextInt(0,copyList.size())));
         }
+        System.out.println(qList.get(qList.size()-1).getQuestion());
         return questionsList;
+    }
+    public void addQuestion (Questions questions) {
+        qList.add(questions);
+
     }
 }

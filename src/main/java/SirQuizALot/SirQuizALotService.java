@@ -90,5 +90,10 @@ public class SirQuizALotService {
     public void addToHighscoreList (User user) {
         statistics.addToHighscoreList(user);
     }
+  
+    public void createQuestion (int id, String question, String alt1, String alt2, String alt3, int answer) {
+        Questions questions = new Questions(id, question, alt1, alt2,alt3, answer);
+        questionRepo.addQuestion(questions);
+    }
 }
 

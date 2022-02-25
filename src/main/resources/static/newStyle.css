@@ -14,6 +14,25 @@ padding: 10px;
 align:center;
 margin:auto;
 }
+.boxGreen{
+background-color: #9AD57E;
+border-style: inset;
+border-radius:25px;
+width: 800px;
+max-width:80%;
+padding: 10px;
+align:center;
+margin:auto;
+}
+a:link .startLank{
+color: #9AD57E;
+text-decoration: underline;
+}
+a:hover .startLank{
+color: #9AD57E;
+text-decoration: none;
+}
+
 #question-box{
 background-color: #F5D433;
 border-style: inset;

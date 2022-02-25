@@ -63,6 +63,10 @@ public class SirQuizALotController {
         } else
             return "redirect:/";
     }
+    @PostMapping("/question")
+    public String nextQuestion (){
+        return "redirect:/question";
+    }
 
     @GetMapping("/newaccount")
     public String newAccount() {
@@ -73,5 +77,23 @@ public class SirQuizALotController {
     public String addUser(@RequestParam String username, @RequestParam String password) {
         service.createUser(username, password);
         return "redirect:/";
+    }
+
+    @GetMapping("/quizend")
+    public String quizend(HttpSession session, Model model) {
+        String username = (String) session.getAttribute("username");
+        model.addAttribute("username", username);
+        return "highScore";
+    }
+
+    @GetMapping("/newquestion")
+    public String newQuestion() {
+        return "newQuestion";
+    }
+
+    @PostMapping("/newquestion")
+    public String addQuestion(@RequestParam int id, @RequestParam String question, @RequestParam String alternative1, @RequestParam String alternative2, @RequestParam String alternative3, @RequestParam int answer) {
+        service.createQuestion(id, question, alternative1, alternative2, alternative3, answer);
+        return "admin";
     }
 }
