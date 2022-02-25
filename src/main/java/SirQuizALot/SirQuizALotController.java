@@ -70,6 +70,7 @@ public class SirQuizALotController {
 
     @GetMapping("/newaccount")
     public String newAccount() {
+
         return "NewAccount";
     }
 
@@ -87,12 +88,15 @@ public class SirQuizALotController {
     }
 
     @GetMapping("/newquestion")
-    public String newQuestion() {
+    public String newQuestion(HttpSession session) {
+        String username = (String) session.getAttribute("username");
+
         return "newQuestion";
     }
 
     @PostMapping("/newquestion")
-    public String addQuestion(@RequestParam int id, @RequestParam String question, @RequestParam String alternative1, @RequestParam String alternative2, @RequestParam String alternative3, @RequestParam int answer) {
+    public String addQuestion(@RequestParam int id, @RequestParam String question, @RequestParam String alternative1, @RequestParam String alternative2, @RequestParam String alternative3, @RequestParam int answer, HttpSession session) {
+        String username = (String) session.getAttribute("username");
         service.createQuestion(id, question, alternative1, alternative2, alternative3, answer);
         return "admin";
     }
