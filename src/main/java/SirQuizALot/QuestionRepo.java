@@ -96,9 +96,9 @@ public class QuestionRepo {
         for (int i = 0; i < sizeOfList; i++) {
             questionsList.add(copyList.remove(ThreadLocalRandom.current().nextInt(0,copyList.size())));
         }
-        System.out.println(qList.get(qList.size()-1).getQuestion());
         return questionsList;
     }
+    
     public void addQuestion (Questions questions) {
         qList.add(questions);
 
