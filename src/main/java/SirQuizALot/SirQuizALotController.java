@@ -38,8 +38,13 @@ public class SirQuizALotController {
     @GetMapping("/home")
     public String getHomePage(HttpSession session, Model model) {
         String username = (String) session.getAttribute("username");
-        if (username != null && service.isAdmin(username) == true) {
-            return "redirect:/admin";
+        if (username != null) {
+            model.addAttribute("highscore", service.getHighscoreList());
+            session.setAttribute("quiz", service.getListOfQuestions());
+            if (service.isAdmin(username)) {
+                model.addAttribute("isAdmin",true);
+            }
+            return "home";
         } else if (username != null && service.isAdmin(username) == false) {
             model.addAttribute("highscore", service.getHighscoreList());
             session.setAttribute("quiz", service.getListOfQuestions());
@@ -53,9 +58,6 @@ public class SirQuizALotController {
         if (username != null && service.isAdmin(username) == true) {
             model.addAttribute("questions", service.getAllQuestions());
             return "admin";
-        } else if (username != null && service.isAdmin(username) == false) {
-            model.addAttribute("highscore", service.getHighscoreList());
-            return "redirect:/home";
         } else
             return "redirect:/";
     }
@@ -73,9 +75,10 @@ public class SirQuizALotController {
         List<Questions> questionsList = (List<Questions>) session.getAttribute("quiz");
         boolean quizOver = false;
         //Questions questions = questionsList.remove(0);
-        if (questionsList.size() == 0)
+
+        if (questionsList != null && questionsList.size() == 0)
             quizOver = true;
-        else {
+        else if (questionsList != null){
             Questions questions = questionsList.remove(0);
             model.addAttribute("question", questions);
             session.setAttribute("questionId",questions.getId());
@@ -83,7 +86,7 @@ public class SirQuizALotController {
         }
 
 
-        if (username != null && !quizOver) { //listsize > 0) {
+        if (username != null && !quizOver) {
             return "question";
         }  else if (username != null && quizOver) {
             return "redirect:/quizend";
