@@ -45,10 +45,6 @@ public class SirQuizALotController {
                 model.addAttribute("isAdmin",true);
             }
             return "home";
-        } else if (username != null && service.isAdmin(username) == false) {
-            model.addAttribute("highscore", service.getHighscoreList());
-            session.setAttribute("quiz", service.getListOfQuestions());
-            return "home";
         } else
             return "redirect:/";
     }
