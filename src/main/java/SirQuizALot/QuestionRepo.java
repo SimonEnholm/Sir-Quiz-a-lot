@@ -96,6 +96,5 @@ public class QuestionRepo {
             questionsList.add(copyList.remove(ThreadLocalRandom.current().nextInt(0,copyList.size())));
         }
         return questionsList;
-
     }
 }
