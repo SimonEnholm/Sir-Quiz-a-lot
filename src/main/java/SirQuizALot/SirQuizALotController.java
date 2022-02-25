@@ -75,9 +75,10 @@ public class SirQuizALotController {
         List<Questions> questionsList = (List<Questions>) session.getAttribute("quiz");
         boolean quizOver = false;
         //Questions questions = questionsList.remove(0);
-        if (questionsList.size() == 0)
+
+        if (questionsList != null && questionsList.size() == 0)
             quizOver = true;
-        else {
+        else if (questionsList != null){
             Questions questions = questionsList.remove(0);
             model.addAttribute("question", questions);
             session.setAttribute("questionId",questions.getId());
@@ -85,7 +86,7 @@ public class SirQuizALotController {
         }
 
 
-        if (username != null && !quizOver) { //listsize > 0) {
+        if (username != null && !quizOver) {
             return "question";
         }  else if (username != null && quizOver) {
             return "redirect:/quizend";
