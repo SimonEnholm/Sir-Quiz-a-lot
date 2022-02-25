@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 public class SirQuizALotService {
@@ -87,7 +88,8 @@ public class SirQuizALotService {
         return false;
     }
     public void createUser (String username, String password)  {
-        User user1 = new User(username, password, false);
+        // TODO change threadlocalRandom till primärnyckel i databas
+        User user1 = new User(ThreadLocalRandom.current().nextInt(10,10000),username, password, false);
        userRepo.addUser(user1);
     }
 
