@@ -18,18 +18,16 @@
         </a>
 
         <ul class="nav nav-pills">
-            <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-link link-light">Features</a></li>
-            <li class="nav-item"><a href="#" class="nav-link link-light">Pricing</a></li>
-            <li class="nav-item"><a href="#" class="nav-link link-light">FAQs</a></li>
-            <li class="nav-item"><a href="#" class="nav-link link-light">About</a></li>
+            <li class="nav-item"><a href="/home" class="nav-link active" aria-current="page">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link link-light">Suggest a question</a></li>
+            <li class="nav-item" th:if="${isAdmin}"><a href="/admin" class="nav-link link-light">Admin</a></li>
         </ul>
     </header>
 </div>
 <div class="b-example-divider"></div>
 
 <div class="container col-xl-8 px-4 py-5">
-    <h1 class="display-5 fw-bold lh-1 mb-3" th:text="'Välkommen ' + ${session.username} + '!'"></h1>
+    <h1 class="display-5 fw-bold lh-1 mb-3" th:text="'Welcome ' + ${session.username} + '!'"></h1>
     <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
         <div class="col-10 col-sm-8 col-lg-6">
             <img src="/static/Champion.png" th:src="'/Champion.png'" class="d-block mx-lg-auto img-fluid"
@@ -68,7 +66,7 @@
                      alt="Winners Cup" width="700" height="500" loading="lazy">
             </div>
             <div class="col-lg-6">
-                <h1 class="display-5 fw-bold lh-1 mb-3">Starta ett Quiz</h1>
+                <h1 class="display-5 fw-bold lh-1 mb-3">Start a Quiz!</h1>
             </div>
         </div>
     </div>
@@ -81,14 +79,19 @@
         <div class="col-4">
             <div class="rounded p-5 border bg-warning">
                 <img src="/static/RedButton.png" th:src="'/RedButton.png'" class="d-block mx-lg-auto img-fluid"
+
                      alt="Questionmark" width="700" height="500" loading="lazy">Lämna förslag på frågor
             </a>
+
+                     alt="Questionmark" width="700" height="500" loading="lazy">
+                <div><a href="#" class="nav-link link-dark" aria-current="page">Suggest question</a></div>
             </div>
         </div>
 
         <div class="col-4">
-            <div class="rounded p-5 border bg-success"><img src="/static/GreenButton.png" th:src="'/GreenButton.png'"
-                                                            class="d-block mx-lg-auto img-fluid" alt="Questionmark" width="700" height="500" loading="lazy">Se statistik
+            <div class="rounded p-5 border bg-success">
+                <img src="/static/GreenButton.png" th:src="'/GreenButton.png'" class="d-block mx-lg-auto img-fluid" alt="Questionmark" width="700" height="500" loading="lazy">
+                <div><a href="#" class="nav-link link-dark" aria-current="page">Look at Statistics</a></div>
             </div>
         </div>
     </div>
@@ -98,7 +101,7 @@
     <div>
         <div class="d-grid gap-2 col-2 mx-auto">
             <button class="btn btn-primary" type="button">
-                <a href="/logout" class="nav-link link-light">Logout</a></button>
+                <a href="/logout" class="nav-link link-dark">Logout</a></button>
             </button>
         </div>
     </div>

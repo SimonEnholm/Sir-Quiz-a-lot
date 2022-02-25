@@ -27,10 +27,12 @@ margin:auto;
 a:link .startLank{
 color: #9AD57E;
 text-decoration: underline;
+text-align: center;
 }
 a:hover .startLank{
 color: #9AD57E;
 text-decoration: none;
+text-align: center;
 }
 
 #question-box{
