@@ -35,14 +35,15 @@ public class SirQuizALotController {
     }
 
     @GetMapping("/home")
-    public String getHomePage(HttpSession session) {
+    public String getHomePage(HttpSession session, Model model) {
         String username = (String) session.getAttribute("username");
         if (username != null && service.isAdmin(username) == true) {
             return "admin";
         } else if (username != null && service.isAdmin(username) == false) {
+            model.addAttribute("highscore", service.getHighscoreList());
             return "home";
         } else
-            return "redirect :/";
+            return "redirect:/";
     }
 
     @GetMapping("/logout")
