@@ -38,8 +38,11 @@ public class SirQuizALotService {
         return questionsList.remove(0);
     }
 
-    private void getListOfQuestions() {
+    /*private void getListOfQuestions() {
         questionsList = questionRepo.getListOfQuestions(5);
+    }*/
+    public List<Questions> getListOfQuestions() {
+        return questionRepo.getListOfQuestions(5);
     }
 
     public List<List<Integer>> getQuestionFrequencies() {
@@ -87,13 +90,23 @@ public class SirQuizALotService {
        userRepo.addUser(user1);
     }
 
-    public void addToHighscoreList (User user) {
-        statistics.addToHighscoreList(user);
+    public void addToHighscoreList (String username) {
+        List<User> userList = userRepo.getUserList();
+        for (User user : userList)
+            if (user.getUsername().equalsIgnoreCase(username)) {
+                statistics.addToHighscoreList(user);
+                user.setPoint(0);
+                break;
+            }
     }
   
     public void createQuestion (int id, String question, String alt1, String alt2, String alt3, int answer) {
         Questions questions = new Questions(id, question, alt1, alt2,alt3, answer);
         questionRepo.addQuestion(questions);
+    }
+
+    public List<Questions> getAllQuestions() {
+        return questionRepo.getAll();
     }
 }
 
