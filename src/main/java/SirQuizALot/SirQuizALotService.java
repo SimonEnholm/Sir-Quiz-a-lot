@@ -10,7 +10,7 @@ import java.util.List;
 public class SirQuizALotService {
 
     @Autowired
-    UserRepo userRepo;
+    UserRepo userRepo = new UserRepo();
 
     @Autowired
     QuestionRepo questionRepo;
@@ -85,8 +85,10 @@ public class SirQuizALotService {
     public void createUser (String username, String password)  {
         User user1 = new User(username, password, false);
        userRepo.addUser(user1);
+    }
 
-
+    public void addToHighscoreList (User user) {
+        statistics.addToHighscoreList(user);
     }
 }
 
