@@ -36,6 +36,49 @@ public class QuestionRepo {
         qList.add(q2);
         qList.add(q3);
 
+        qList.add(new Questions(4,
+                "Vad sägs det att Julius Ceasar sade när han korsade floden Rubicon?",
+                "Alea iacta est.",
+                "Veni, Vidi, Vici.",
+                "Carpe diem.",
+                1));
+        qList.add(new Questions(5,
+                "Sagohjälten Hjalmar den hugstore dräptes av detta magiska svärd:",
+                "Excalibur",
+                "Tyrfing",
+                "Durendal",
+                2));
+        qList.add(new Questions(6,
+                "Vilket år sändes Melodikrysset för första gången?",
+                "1965",
+                "1975",
+                "1985",
+                1));
+        qList.add(new Questions(7,
+                "Vad är Kalle Ankas fullständiga namn?",
+                "Kalle Harald Anka",
+                "Karl Erik Anka",
+                "Karl Magnus Anka",
+                3));
+        qList.add(new Questions(8,
+                "I vilket nuvarande land ligger Jagellonska universitetet?",
+                "Tjeckien",
+                "Ungern",
+                "Polen",
+                3));
+        qList.add(new Questions(9,
+                "Efter ett korståg till det heliga landet så valde den norska kungen Sigurd Jorsalafare att dra ut på korståg till detta landskap:",
+                "Småland",
+                "Lappland",
+                "Gotland",
+                1));
+        qList.add(new Questions(10,
+                "Fasanön är en obebodd ö som ägs av två länder men administreras av ett land i taget, halvårsvis. Mellan vilka länder?",
+                "Grekland och Turkiet",
+                "Spanien och Frankrike",
+                "Thailand och Kambodja",
+                2));
+
     }
 
     private Questions getQuestion() {
@@ -47,16 +90,12 @@ public class QuestionRepo {
     }
 
     public List<Questions> getListOfQuestions(int sizeOfList) {
+        List<Questions> copyList = new ArrayList<>(qList);
         List<Questions> questionsList = new ArrayList<>();
-        questionsList.add(getQuestion());
-
-        do {
-            Questions question = getQuestion();
-            for (int i=0; i<questionsList.size(); i++) {
-                if (question.getId() != questionsList.get(i).getId() && i == questionsList.size()-1)
-                    questionsList.add(question);
-            }
-        } while (questionsList.size() < sizeOfList);
+        for (int i = 0; i < sizeOfList; i++) {
+            questionsList.add(copyList.remove(ThreadLocalRandom.current().nextInt(0,copyList.size())));
+        }
         return questionsList;
+
     }
 }
