@@ -32,8 +32,8 @@
 <div class="b-example-divider"></div>
 
 <div class="container col-xl-8 px-4 py-5">
-    <h1 class="display-5 fw-bold lh-1 mb-3" th:text="'Snyggt spelat ' + ${session.username} + '!'">Snyggt spelat
-        NAMEPLACEHOLDER</h1>
+    <h1 class="display-5 fw-bold lh-1 mb-3" th:text="'Snyggt spelat ' + ${session.username} + '!'">Nice Game
+        User</h1>
     <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
         <div class="col-10 col-sm-8 col-lg-6">
             <img src="/static/ChampionConfetti.png" th:src="'/ChampionConfetti.png'"
@@ -41,10 +41,10 @@
                  alt="Winners Cup" width="700" height="500" loading="lazy">
         </div>
         <div class="col-lg-6">
-            <div class="boxGreen"> Dina poäng: <span th:text="${points}">poäng</span></div>
+            <div class="boxGreen"> Your points: <span th:text="${points}">point</span></div>
             <div class="startLank">
                 <a class="startLank" href="/question">
-                <h1 class="startLank">Starta ett till Quiz - Du får inte nog va!?</h1>
+                <h1 class="startLank">Another Go??</h1>
             </a>
             </div>
         </div>
@@ -95,13 +95,13 @@
         <div class="col-4">
             <div class="rounded p-5 border bg-success"><img src="/static/GreenButton.png" th:src="'/GreenButton.png'"
                                                             class="d-block mx-lg-auto img-fluid" alt="Procent"
-                                                            width="700" height="500" loading="lazy">Se statistik
+                                                            width="700" height="500" loading="lazy">See statistics
             </div>
         </div>
         <div class="col-4">
             <div class="rounded p-5 border bg-secondary"><img src="/static/BlueButton.png" th:src="'/BlueButton.png'"
                                                               class="d-block mx-lg-auto img-fluid" alt="Questionmark"
-                                                              width="700" height="500" loading="lazy">Gå till min sida
+                                                              width="700" height="500" loading="lazy">Go to my pages
             </div>
         </div>
     </div>
