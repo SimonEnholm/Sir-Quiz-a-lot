@@ -38,8 +38,13 @@ public class SirQuizALotController {
     @GetMapping("/home")
     public String getHomePage(HttpSession session, Model model) {
         String username = (String) session.getAttribute("username");
-        if (username != null && service.isAdmin(username) == true) {
-            return "redirect:/admin";
+        if (username != null) {
+            model.addAttribute("highscore", service.getHighscoreList());
+            session.setAttribute("quiz", service.getListOfQuestions());
+            if (service.isAdmin(username)) {
+                model.addAttribute("isAdmin",true);
+            }
+            return "home";
         } else if (username != null && service.isAdmin(username) == false) {
             model.addAttribute("highscore", service.getHighscoreList());
             session.setAttribute("quiz", service.getListOfQuestions());
@@ -53,9 +58,6 @@ public class SirQuizALotController {
         if (username != null && service.isAdmin(username) == true) {
             model.addAttribute("questions", service.getAllQuestions());
             return "admin";
-        } else if (username != null && service.isAdmin(username) == false) {
-            model.addAttribute("highscore", service.getHighscoreList());
-            return "redirect:/home";
         } else
             return "redirect:/";
     }
