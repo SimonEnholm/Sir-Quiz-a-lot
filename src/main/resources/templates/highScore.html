@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/style.css" th:href="'/style.css'">
+    <link rel="stylesheet" href="../static/newStyle.css" th:href="'/newStyle.css'">
+    <title>HighScore</title>
+</head>
+<div class="container">
+    <header class="d-flex bg-primary flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <svg class="bi me-2" width="40" height="32">
+                <use xlink:href="#bootstrap"/>
+            </svg>
+
+            <span><img src="/static/FullLogoWhite.png" th:src="'/FullLogoWhite.png'" alt="loggo" width="200px"
+                       height="auto"></span>
+        </a>
+
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link link-light">Features</a></li>
+            <li class="nav-item"><a href="#" class="nav-link link-light">Pricing</a></li>
+            <li class="nav-item"><a href="#" class="nav-link link-light">FAQs</a></li>
+            <li class="nav-item"><a href="#" class="nav-link link-light">About</a></li>
+        </ul>
+
+    </header>
+</div>
+<div class="b-example-divider"></div>
+
+<div class="container col-xl-8 px-4 py-5">
+    <h1 class="display-5 fw-bold lh-1 mb-3" th:text="'Snyggt spelat ' + ${session.username} + '!'">Snyggt spelat
+        NAMEPLACEHOLDER</h1>
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+        <div class="col-10 col-sm-8 col-lg-6">
+            <img src="/static/ChampionConfetti.png" th:src="'/ChampionConfetti.png'"
+                 class="d-block mx-lg-auto img-fluid"
+                 alt="Winners Cup" width="700" height="500" loading="lazy">
+        </div>
+        <div class="col-lg-6">
+            <div class="boxGreen"> Din Score</div>
+            <div class="startLank">
+                <a class="startLank" href="/question">
+                <h1 class="startLank">Starta ett till Quiz - Du får inte nog va!?</h1>
+            </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container bg-secondary">
+    <div class="container col-xl-8 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img src="/static/BlueButton.png" th:src="'/BlueButton.png'" class="d-block mx-lg-auto img-fluid"
+                     alt="ExclamationPoint" width="auto" height="500" loading="lazy">
+            </div>
+            <div class="col-lg-6">
+                <div class="col-lg-6">
+                    <h5 class="display-5">Leaderboard</h5>
+                    <p>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Points</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="score : ${highscore}">
+                            <th scope="row" th:text="${scoreStat.index}+1"></th>
+                            <td th:text="${highscore[scoreStat.index][0]}"></td>
+                            <td th:text="${highscore[scoreStat.index][1]}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container p-5">
+    <div class="row g-5 justify-content-center">
+        <div class="col-4">
+            <div class="rounded p-5 border bg-warning">
+                <img src="/static/RedButton.png" th:src="'/RedButton.png'" class="d-block mx-lg-auto img-fluid"
+                     alt="Questionmark" width="700" height="500" loading="lazy">Lämna förslag på frågor
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="rounded p-5 border bg-success"><img src="/static/GreenButton.png" th:src="'/GreenButton.png'"
+                                                            class="d-block mx-lg-auto img-fluid" alt="Procent"
+                                                            width="700" height="500" loading="lazy">Se statistik
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="rounded p-5 border bg-secondary"><img src="/static/BlueButton.png" th:src="'/BlueButton.png'"
+                                                              class="d-block mx-lg-auto img-fluid" alt="Questionmark"
+                                                              width="700" height="500" loading="lazy">Gå till min sida
+            </div>
+        </div>
+    </div>
+</div>
+
+<body>
+<div class="row justify-content-center">
+    <div>
+        <div class="d-grid gap-2 col-2 mx-auto">
+            <button class="btn btn-primary" type="button">
+                <a href="/logout" class="nav-link link-light">Logout</a></button>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="container p-5"></div>
+</div>
+</body>
+
+</html>

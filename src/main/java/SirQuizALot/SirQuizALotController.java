@@ -79,6 +79,13 @@ public class SirQuizALotController {
         return "redirect:/";
     }
 
+    @GetMapping("/quizend")
+    public String quizend(HttpSession session, Model model) {
+        String username = (String) session.getAttribute("username");
+        model.addAttribute("username", username);
+        return "highScore";
+    }
+
     @GetMapping("/newquestion")
     public String newQuestion() {
         return "newQuestion";
