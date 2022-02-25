@@ -63,6 +63,10 @@ public class SirQuizALotController {
         } else
             return "redirect:/";
     }
+    @PostMapping("/question")
+    public String nextQuestion (){
+        return "redirect:/question";
+    }
 
     @GetMapping("/newaccount")
     public String newAccount() {
