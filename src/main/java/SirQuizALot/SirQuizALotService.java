@@ -99,5 +99,10 @@ public class SirQuizALotService {
     public List<Questions> getAllQuestions() {
         return questionRepo.getAll();
     }
+
+    public void questionRequest (int id, String question, String alt1, String alt2, String alt3, int answer) {
+    Questions requestQuestion = new Questions(id, question, alt1, alt2, alt3, answer);
+    questionRepo.addRequest(requestQuestion);
+    }
 }
 

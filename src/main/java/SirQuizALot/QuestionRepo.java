@@ -12,6 +12,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class QuestionRepo {
 
     List<Questions> qList = new ArrayList<>();
+    List<Questions> qRequest = new ArrayList<>();
 
     public QuestionRepo() {
         Questions q1 = new Questions(1,
@@ -103,4 +104,10 @@ public class QuestionRepo {
         qList.add(questions);
 
     }
+    public void addRequest (Questions questions1) {
+        qRequest.add(questions1);
+        System.out.println(qRequest.get(qRequest.size()-1).getQuestion());
+
+    }
+
 }
