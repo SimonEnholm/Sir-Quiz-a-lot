@@ -96,15 +96,15 @@ public class SirQuizALotController {
     }
 
     @PostMapping("/question")
-    public String nextQuestion() {
 
-    public String nextQuestion (HttpSession session, @RequestParam Integer option){
+        public String nextQuestion (HttpSession session, @RequestParam Integer option){
 
-        String correctOrWrong = service.checkAnswer((String) session.getAttribute("username"),
-                (Integer)session.getAttribute("questionId"),
-                option);
-        return "redirect:/question";
-    }
+            String correctOrWrong = service.checkAnswer((String) session.getAttribute("username"),
+                    (Integer) session.getAttribute("questionId"),
+                    option);
+            return "redirect:/question";
+        }
+
 
     @GetMapping("/newaccount")
     public String newAccount() {
