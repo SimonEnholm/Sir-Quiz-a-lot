@@ -79,6 +79,17 @@ public class SirQuizALotController {
         return "redirect:/";
     }
 
+    @GetMapping("/newquestion")
+    public String newQuestion() {
+        return "newQuestion";
+    }
+
+    @PostMapping("/newquestion")
+    public String addQuestion(@RequestParam int id, @RequestParam String question, @RequestParam String alternative1, @RequestParam String alternative2, @RequestParam String alternative3, @RequestParam int answer) {
+        service.createQuestion(id, question, alternative1, alternative2, alternative3, answer);
+        return "admin";
+    }
+
     @GetMapping("/quizend")
     public String quizend(HttpSession session, Model model) {
         String username = (String) session.getAttribute("username");

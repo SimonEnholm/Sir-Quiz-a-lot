@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
@@ -8,13 +15,13 @@
 </head>
 <body>
 
- <div class="container">
+<div class="container">
     <div class="d-flex flex-wrap justify-content-center py-3 mb-4">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"></a>
     </div>
 </div>
 
- <style>
+<style>
 
       .form-signin {
  width: 100%;
@@ -49,22 +56,27 @@
 
 
 <div class="form-signin">
- <img src="/static/PleaseSignInLogo.png" th:src="'/PleaseSignInLogo.png'" alt="" width="350" height="auto">
+    <img src="/static/CreateAccountLogo.png" th:src="'/CreateAccountLogo.png'" alt="" width="350" height="auto">
 </div>
 
-<form class="form-signin" method="POST" action="/">
-    <input class="form-control" type="text" id="inputUsername" placeholder="Username" name="username">
-    <input class="form-control" type="password" id="inputPassword" placeholder="Password" name="password" required="">
-    <div class="checkbox mb-3">
-        <label>
-            <input type="checkbox" value="remember-me"> Remember me
-        </label>
-    </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-                                                    <!-- Länk till create account sida -->
-    <a button class="btn btn-lg btn-primary btn-block" href="/newaccount" type="submit">Create Account</button></a>
+
+<form class="form-signin" method="POST" action="/newquestion">
+    <input class="form-control" type="text" id="id" placeholder="Question ID" name="id"/>
+    <input class="form-control" type="text" id="inputUsername" placeholder="Question" name="question"/>
+    <input type="text" id="inputAlternative1" class="form-control" placeholder="Alternative 1" name="alternative1" required=""/>
+    <input type="text" id="inputAlternative2" class="form-control" placeholder="Alternative 2" name="alternative2" required=""/>
+    <input type="text" id="inputAlternative3" class="form-control" placeholder="Alternative 3" name="alternative3" required=""/>
+    <input type="text" id="Answer" class="form-control" placeholder="Answer" name="answer" required=""/>
+
+
+
+    <!-- Länk tillbaka till Login sidan -->
+    <input  class="btn btn-lg btn-primary btn-block" value="Create a new question" type="submit"/>
     <p class="mt-5 mb-3 text-muted">© Sir.QuizALot 2022</p>
 </form>
+
+</body>
+</html>
 
 </body>
 </html>
