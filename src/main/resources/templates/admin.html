@@ -36,41 +36,25 @@
                  alt="Winners Cup" width="700" height="500" loading="lazy">
         </div>
         <div class="col-lg-6">
-            <h5 class="display-5">Leaderboard</h5>
+            <h5 class="display-5">Questions</h5>
             <p>
             <table class="table table-striped table-secondary">
                 <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Points</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">Question</th>
+                    <th scope="col">Options</th>
+                    <th scope="col">Correct</th>
+
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>ThisTheGuy</td>
-                    <td>25600</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>IsThisRight</td>
-                    <td>25500</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Dudette</td>
-                    <td>24500</td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>SomeDude</td>
-                    <td>24300</td>
-                </tr>
-                <tr>
-                    <th scope="row">5</th>
-                    <td>WhoDis</td>
-                    <td>24200</td>
+                <tr th:each="question: ${questions}">
+                    <th scope="row" th:text="${question.question}">1</th>
+                    <td th:text="${question.option1} + ' ' + ${question.option2} + ' '+ ${question.option3}">question
+                    </td>
+                    <td th:text="${question.answer}">answers</td>
+                    <td>correct answers</td>
                 </tr>
                 </tbody>
             </table>
@@ -80,50 +64,53 @@
 </div>
 <a href="/newquestion">
 
-<div class="container bg-secondary">
-    <div class="container col-xl-8 px-4 py-5">
-        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-            <div class="col-10 col-sm-8 col-lg-6">
-                <img src="/static/BlueButton.png" th:src="'/BlueButton.png'" class="d-block mx-lg-auto img-fluid"
-                     alt="Winners Cup" width="700" height="500" loading="lazy">
-            </div>
-            <div class="col-lg-6">
-                <h1 class="display-5 fw-bold lh-1 mb-3">Lägg till en ny fråga</h1>
+    <div class="container bg-secondary">
+        <div class="container col-xl-8 px-4 py-5">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                <div class="col-10 col-sm-8 col-lg-6">
+                    <img src="/static/BlueButton.png" th:src="'/BlueButton.png'" class="d-block mx-lg-auto img-fluid"
+                         alt="Winners Cup" width="700" height="500" loading="lazy">
+                </div>
+                <div class="col-lg-6">
+                    <h1 class="display-5 fw-bold lh-1 mb-3">Lägg till en ny fråga</h1>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</a>
 
-<div class="container p-5">
-    <div class="row g-5 justify-content-center">
-        <div class="col-4">
-            <div class="rounded p-5 border bg-warning">
-                <img src="/static/RedButton.png" th:src="'/RedButton.png'" class="d-block mx-lg-auto img-fluid"
-                     alt="Questionmark" width="700" height="500" loading="lazy">Lämna förslag på frågor
+    <div class="container p-5">
+        <div class="row g-5 justify-content-center">
+            <div class="col-4">
+                <div class="rounded p-5 border bg-warning">
+                    <img src="/static/RedButton.png" th:src="'/RedButton.png'" class="d-block mx-lg-auto img-fluid"
+                         alt="Questionmark" width="700" height="500" loading="lazy">Lämna förslag på frågor
+                </div>
             </div>
-        </div>
-        <div class="col-4">
-            <div class="rounded p-5 border bg-success"><img src="/static/GreenButton.png" th:src="'/GreenButton.png'"
-                                                            class="d-block mx-lg-auto img-fluid"
-                                                            alt="Questionmark" width="700" height="500" loading="lazy">Se
-                statistik
+            <div class="col-4">
+                <div class="rounded p-5 border bg-success"><img src="/static/GreenButton.png"
+                                                                th:src="'/GreenButton.png'"
+                                                                class="d-block mx-lg-auto img-fluid"
+                                                                alt="Questionmark" width="700" height="500"
+                                                                loading="lazy">Se
+                    statistik
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<body>
-<div class="row justify-content-center">
-    <div>
-        <div class="d-grid gap-2 col-2 mx-auto">
-            <button class="btn btn-primary" type="button">
-                <a href="/logout" class="nav-link link-light">Logout</a></button>
-            </button>
+    <body>
+    <div class="row justify-content-center">
+        <div>
+            <div class="d-grid gap-2 col-2 mx-auto">
+                <button class="btn btn-primary" type="button">
+                    <a href="/logout" class="nav-link link-light">Logout</a></button>
+                </button>
+            </div>
         </div>
     </div>
-</div>
-<div class="row justify-content-center">
-    <div class="container p-5"></div>
-</div>
-</body>
+    <div class="row justify-content-center">
+        <div class="container p-5"></div>
+    </div>
+    </body>
 </html>

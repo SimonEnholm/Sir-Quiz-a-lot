@@ -38,6 +38,7 @@ public class SirQuizALotController {
     public String getHomePage(HttpSession session, Model model) {
         String username = (String) session.getAttribute("username");
         if (username != null && service.isAdmin(username) == true) {
+            model.addAttribute("questions", service.getAllQuestions());
             return "admin";
         } else if (username != null && service.isAdmin(username) == false) {
             model.addAttribute("highscore", service.getHighscoreList());
