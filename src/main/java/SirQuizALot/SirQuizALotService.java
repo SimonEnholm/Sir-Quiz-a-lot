@@ -14,7 +14,7 @@ public class SirQuizALotService {
     UserRepo userRepo = new UserRepo();
 
     @Autowired
-    QuestionRepo questionRepo;
+    QuestionRepo questionRepo = new QuestionRepo();
 
     @Autowired
     Statistics statistics;
