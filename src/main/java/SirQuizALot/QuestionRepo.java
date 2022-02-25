@@ -15,7 +15,7 @@ public class QuestionRepo {
 
     public QuestionRepo() {
         Questions q1 = new Questions(1,
-                "Which country consumes most Coca Cola per capita?",
+                "Which country consumes most Coca Cola per inhabitant?",
                 "Sweden",
                 "U.S.A.",
                 "Iceland",
