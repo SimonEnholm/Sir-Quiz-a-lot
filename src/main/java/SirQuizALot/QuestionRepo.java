@@ -98,7 +98,6 @@ public class QuestionRepo {
         }
         System.out.println(qList.get(qList.size()-1).getQuestion());
         return questionsList;
-
     }
     public void addQuestion (Questions questions) {
         qList.add(questions);
