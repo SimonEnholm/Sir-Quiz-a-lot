@@ -31,4 +31,24 @@ public class Statistics {
     public int[][] getHighscoreList() {
         return highscoreList;
     }
+
+
+    public void addToHighscoreList(User user) {
+        int[][] tempList = new int[5][2];
+        for (int i = 0; i < highscoreList.length; i++) {
+            if (highscoreList[i][1] < user.getPoint()) {
+                tempList[i][0] = user.getId();
+                tempList[i][1] = user.getPoint();
+                for (int j = i + 1; j < highscoreList.length; j++) {
+                    tempList[j][0] = highscoreList[j - 1][0];
+                    tempList[j][1] = highscoreList[j - 1][1];
+                }
+                break;
+            } else {
+                tempList[i][0] = highscoreList[i][0];
+                tempList[i][1] = highscoreList[i][1];
+            }
+        }
+        highscoreList = tempList;
+    }
 }
