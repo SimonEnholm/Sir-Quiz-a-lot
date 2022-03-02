@@ -79,21 +79,6 @@ public class SirQuizALotService {
             return "correct";
         }
         return "wrong";
-        /*
-        List<User> allUsers = userRepo.getUserList();
-        for (User user : allUsers)
-            if (user.getUsername().equalsIgnoreCase(username))
-                if (questionRepo.getAll().get(questionId - 1).getAnswer() == answer) {
-                    user.addPoint();
-                    return "correct";
-                }
-
-        return "wrong";
-
-        Kolla upp användaren, jämför dennes svar med frågans (via frågans id)
-        om rätt, öka poäng
-        of fel :c
-         */
     }
 
     public boolean isAdmin(String username) {
