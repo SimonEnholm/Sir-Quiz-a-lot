@@ -134,7 +134,7 @@ public class SirQuizALotController {
     @PostMapping("/newquestion")
     public String addQuestion(@RequestParam Long id, @RequestParam String question, @RequestParam String alternative1, @RequestParam String alternative2, @RequestParam String alternative3, @RequestParam int answer, HttpSession session) {
         String username = (String) session.getAttribute("username");
-        service.createQuestion(id, question, alternative1, alternative2, alternative3, answer);
+        service.createQuestion( question, alternative1, alternative2, alternative3, answer);
         return "redirect:/admin";
     }
 

@@ -11,12 +11,11 @@ import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 public class SirQuizALotService {
-
-    @Autowired
+@Autowired
+QuestionRepository questionRepository;
+@Autowired
     UserRepository userRepository;
 
-    @Autowired
-    QuestionRepository questionRepository;
 
     @Autowired
     UserRepo userRepo = new UserRepo();
@@ -93,9 +92,8 @@ public class SirQuizALotService {
     }
 
     public void createUser(String username, String password) {
-        // TODO change threadlocalRandom till primärnyckel i databas
-        User user1 = new User(ThreadLocalRandom.current().nextLong(10, 10000), username, password, false);
-        userRepo.addUser(user1);
+      User user = new User (username, password,false);
+      userRepository.save(user);
     }
 
     public void addToHighscoreList(String username) {
@@ -108,13 +106,13 @@ public class SirQuizALotService {
             }
     }
 
-    public void createQuestion(Long id, String question, String alt1, String alt2, String alt3, int answer) {
-        Questions questions = new Questions(id, question, alt1, alt2, alt3, answer);
-        questionRepo.addQuestion(questions);
+    public void createQuestion(String question, String alt1, String alt2, String alt3, int answer) {
+        Questions questions =  new Questions(null, question, alt1, alt2, alt3, answer);
+        questionRepository.save(questions);
     }
 
     public List<Questions> getAllQuestions() {
-        return questionRepo.getAll();
+        return (List<Questions>) questionRepository.findAll();
     }
 
     public void questionRequest(Long id, String question, String alt1, String alt2, String alt3, int answer) {
