@@ -1,5 +1,6 @@
 INSERT INTO USER (USERNAME, PASSWORD, IS_ADMIN) VALUES ('User', '123',0);
 INSERT INTO USER (USERNAME, PASSWORD, IS_ADMIN) VALUES ('Admin', '123',1);
+INSERT INTO USER (USERNAME, PASSWORD, IS_ADMIN) VALUES ('GöranPersson' , 'allaskamed', 0);
 
 INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER) VALUES ('Which country consumes most Coca Cola per inhabitant?', 'Sweden', 'U.S.A.',
 'Iceland', 3);

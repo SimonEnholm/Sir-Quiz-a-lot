@@ -11,6 +11,7 @@ public class User {
     private String password;
     @Column(name="IS_ADMIN")
     private boolean isAdmin;
+    @Transient
     private int point;
 
     public User() {
