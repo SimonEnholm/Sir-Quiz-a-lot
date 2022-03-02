@@ -86,6 +86,13 @@ VALUES ('What is the name of the main cartoonist for Donald Duck',
 'Paul Banks',
 1);
 
+INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER)
+VALUES ('What are the roman numerals for 2022',
+'MMXXI',
+'MMXXII',
+'MMXIX',
+2);
+
 
 
 
