@@ -114,7 +114,7 @@ QuestionRepository questionRepository;
     }
 
     public List<Questions> getAllQuestions() {
-        return questionRepo.getAll();
+        return (List<Questions>) questionRepository.findAll();
     }
 
     public void questionRequest(Long id, String question, String alt1, String alt2, String alt3, int answer) {
