@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.List;
 @RunWith(SpringRunner.class)
 @SpringBootTest
-//@SpringBootTest
+
 class SirQuizALotApplicationTests {
 
 
@@ -48,6 +48,12 @@ class SirQuizALotApplicationTests {
 
 		Assertions.assertEquals(5, questionsList.size());
 		Assertions.assertNotEquals(questionsList, questionsList2);
+	}
+
+	@Test
+	void testCheckAnswer() {
+		Assertions.assertEquals("correct",service.checkAnswer("user",2L, 3));
+		Assertions.assertEquals("wrong",service.checkAnswer("ADMIN", 2L, 1));
 	}
 
 
