@@ -16,8 +16,6 @@ QuestionRepository questionRepository;
 @Autowired
     UserRepository userRepository;
 
-    @Autowired
-    QuestionRepository questionRepository;
 
     @Autowired
     UserRepo userRepo = new UserRepo();
