@@ -14,8 +14,8 @@ public class QuestionRepo {
     List<Questions> qList = new ArrayList<>();
     List<Questions> qRequest = new ArrayList<>();
 
-    public QuestionRepo() {
-        Questions q1 = new Questions(1,
+    /*public QuestionRepo() {
+       Questions q1 = new Questions(1L,
                 "Which country consumes most Coca Cola per inhabitant?",
                 "Sweden",
                 "U.S.A.",
@@ -81,7 +81,7 @@ public class QuestionRepo {
                 "Thailand och Cambodia",
                 2));
 
-    }
+    } */
 
     private Questions getQuestion() {
         return qList.get(ThreadLocalRandom.current().nextInt(0, qList.size()));
@@ -106,7 +106,6 @@ public class QuestionRepo {
     }
     public void addRequest (Questions questions1) {
         qRequest.add(questions1);
-        System.out.println(qRequest.get(qRequest.size()-1).getQuestion());
 
     }
 

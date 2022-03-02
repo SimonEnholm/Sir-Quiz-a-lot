@@ -89,7 +89,7 @@ public class SirQuizALotService {
     }
     public void createUser (String username, String password)  {
         // TODO change threadlocalRandom till primärnyckel i databas
-        User user1 = new User(ThreadLocalRandom.current().nextInt(10,10000),username, password, false);
+        User user1 = new User(ThreadLocalRandom.current().nextLong(10,10000),username, password, false);
        userRepo.addUser(user1);
     }
 
@@ -103,7 +103,7 @@ public class SirQuizALotService {
             }
     }
   
-    public void createQuestion (int id, String question, String alt1, String alt2, String alt3, int answer) {
+    public void createQuestion (Long id, String question, String alt1, String alt2, String alt3, int answer) {
         Questions questions = new Questions(id, question, alt1, alt2,alt3, answer);
         questionRepo.addQuestion(questions);
     }
@@ -112,7 +112,7 @@ public class SirQuizALotService {
         return questionRepo.getAll();
     }
 
-    public void questionRequest (int id, String question, String alt1, String alt2, String alt3, int answer) {
+    public void questionRequest (Long id, String question, String alt1, String alt2, String alt3, int answer) {
         Questions requestQuestion = new Questions(id, question, alt1, alt2, alt3, answer);
         questionRepo.addRequest(requestQuestion);
     }

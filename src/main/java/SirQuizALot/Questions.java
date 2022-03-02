@@ -1,14 +1,25 @@
 package SirQuizALot;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Questions {
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String question;
     private int answer;
     private String option1;
     private String option2;
     private String option3;
 
-    public Questions(int id, String question, String option1, String option2, String option3, int answer) {
+    public Questions() {
+    }
+
+    public Questions(Long id, String question, String option1, String option2, String option3, int answer) {
         this.id = id;
         this.question = question;
         this.option1 = option1;
@@ -26,11 +37,11 @@ public class Questions {
         this.option3 = option3;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

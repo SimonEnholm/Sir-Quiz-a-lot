@@ -1,13 +1,21 @@
 package SirQuizALot;
 
+import javax.persistence.*;
+
+@Entity
 public class User {
-    private int id;
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    private Long id;
     private String username;
     private String password;
+    @Column(name="IS_ADMIN")
     private boolean isAdmin;
     private int point;
 
-    public User(int id, String username, String password, boolean isAdmin) {
+    public User() {
+    }
+    public User(Long id, String username, String password, boolean isAdmin) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -15,13 +23,14 @@ public class User {
         this.point = 0;
     }
 
+
     public User(String username, String password, boolean isAdmin) {
         this.username = username;
         this.password = password;
         this.isAdmin = isAdmin;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 

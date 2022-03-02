@@ -15,7 +15,7 @@ public class Statistics {
         // Add a list of [id, option1Freq, option2Freq, option3Freq]
         List<Questions> allQuestions = questionRepo.getAll();
         for (int i = 0; i < allQuestions.size(); i++)
-            questionFrequencies.add(List.of(allQuestions.get(i).getId(),0,0,0));
+           // todo questionFrequencies.add(List.of(allQuestions.get(i).getId(),0,0,0));
 
         //Fixa highscore lista
         highscoreList[0][0] = 1;
@@ -37,7 +37,7 @@ public class Statistics {
         int[][] tempList = new int[5][2];
         for (int i = 0; i < highscoreList.length; i++) {
             if (highscoreList[i][1] < user.getPoint()) {
-                tempList[i][0] = user.getId();
+                //todo tempList[i][0] = user.getId();
                 tempList[i][1] = user.getPoint();
                 for (int j = i + 1; j < highscoreList.length; j++) {
                     tempList[j][0] = highscoreList[j - 1][0];

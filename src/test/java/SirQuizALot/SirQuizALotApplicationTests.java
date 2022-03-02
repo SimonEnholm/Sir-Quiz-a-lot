@@ -29,8 +29,8 @@ class SirQuizALotApplicationTests {
 		SirQuizALotService service = new SirQuizALotService();
 		List<Questions> questionsList = service.getAllQuestions();
 		int lengthList = questionsList.size();
-		service.createQuestion(101,"Fråga","alt1","alt2","alt3",1);
-		Questions questions = new Questions(101,"Fråga","alt1","alt2","alt3",1);
+		service.createQuestion(101L,"Fråga","alt1","alt2","alt3",1);
+		Questions questions = new Questions(101L,"Fråga","alt1","alt2","alt3",1);
 		questionsList = service.getAllQuestions();
 		Assertions.assertEquals(true, lengthList+1 == questionsList.size());
 		Assertions.assertEquals(true, questions.getId() == questionsList.get(questionsList.size()-1).getId());
