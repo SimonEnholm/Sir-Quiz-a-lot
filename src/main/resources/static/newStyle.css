@@ -53,8 +53,20 @@ width: 600px;
 max-width:60%;
 align-items:center;
 margin:10px;
-
+animation-name: optionbox;
+animation-duration: 0.5s;
+animation-delay: 3s;
+animation-iteration-count: 1;
+opacity:0;
+animation-fill-mode: forwards;
 }
+
+@keyframes optionbox {
+from {opacity: 0;}
+to {opacity: 1;}
+}
+
+
 #end-button{
 background-color: #F17183;
 border-style: inset;
