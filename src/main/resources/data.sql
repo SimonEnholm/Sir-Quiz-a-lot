@@ -4,7 +4,7 @@ INSERT INTO USER (USERNAME, PASSWORD, IS_ADMIN)
 VALUES ('Admin', '123',1);
 
 INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER)
-ALUES ('Which country consumes most Coca Cola per inhabitant?',
+VALUES ('Which country consumes most Coca Cola per inhabitant?',
 'Sweden',
 'U.S.A.',
 'Iceland',
