@@ -14,7 +14,6 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-
 class SirQuizALotApplicationTests {
 
 
@@ -51,11 +50,18 @@ class SirQuizALotApplicationTests {
         Assertions.assertNotEquals(questionsList, questionsList2);
     }
 
-	@Test
-	void testCheckAnswer() {
-		Assertions.assertEquals("correct",service.checkAnswer("user",2L, 3));
-		Assertions.assertEquals("wrong",service.checkAnswer("ADMIN", 2L, 1));
-	}
+    @Test
+    void testCheckAnswer() {
+        Assertions.assertEquals("correct", service.checkAnswer("user", 2L, 3));
+        Assertions.assertEquals("wrong", service.checkAnswer("ADMIN", 2L, 1));
+    }
 
+    @Test
+    void testAddUser() {
+        service.createUser("SirQuizAlot", "1337");
+        service.createUser("JohanH", "Mittlösenord");
+        Assertions.assertEquals(true, service.isUser("SirQuizAlot", "1337"));
+        Assertions.assertEquals(true, service.isUser("JohanH", "Mittlösenord"));
+    }
 
 }
