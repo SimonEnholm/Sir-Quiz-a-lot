@@ -17,6 +17,9 @@ QuestionRepository questionRepository;
     UserRepository userRepository;
 
     @Autowired
+    QuestionRepository questionRepository;
+
+    @Autowired
     UserRepo userRepo = new UserRepo();
 
     @Autowired
@@ -70,15 +73,12 @@ QuestionRepository questionRepository;
         return highscoreList;
     }
 
-    public String checkAnswer(String username, int questionId, int answer) {
-        List<User> allUsers = userRepo.getUserList();
-        for (User user : allUsers)
-            if (user.getUsername().equalsIgnoreCase(username))
-                if (questionRepo.getAll().get(questionId - 1).getAnswer() == answer) {
-                    user.addPoint();
-                    return "correct";
-                }
-
+    public String checkAnswer(String username, long questionId, int answer) {
+        User user = userRepository.queryUsername(username.toUpperCase()).get(0);
+        if (questionRepository.findById(questionId).get().getAnswer() == answer) {
+            user.addPoint();
+            return "correct";
+        }
         return "wrong";
     }
 
