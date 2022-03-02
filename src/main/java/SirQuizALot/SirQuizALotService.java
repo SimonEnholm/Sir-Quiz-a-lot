@@ -6,10 +6,14 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 public class SirQuizALotService {
+
+    @Autowired
+    UserRepository userRepository;
 
     @Autowired
     UserRepo userRepo = new UserRepo();
@@ -23,14 +27,14 @@ public class SirQuizALotService {
     private List<Questions> questionsList = new ArrayList<>();
 
     public boolean isUser(String username, String password) {
-        List<User> userList = userRepo.getUserList();
-
-        for (User existingUser: userList) {
+        List<User> userList = userRepository.userExistWithPassword(username.toUpperCase(), password);
+        return userList.size()>0;
+      /*  for (User existingUser: userList) {
             if (existingUser.getUsername().equalsIgnoreCase(username)
                     && existingUser.getPassword().equals(password))
                 return true;
         }
-        return false;
+        return false; */
     }
 
     public Questions getQuestion() {
@@ -60,7 +64,7 @@ public class SirQuizALotService {
         for (int i = 0; i < highscore.length; i++) {
             for (User user : allUsers)
                 if (user.getId() == highscore[i][0])
-                    highscoreList.add(List.of(user.getUsername(),Integer.toString(highscore[i][1])));
+                    highscoreList.add(List.of(user.getUsername(), Integer.toString(highscore[i][1])));
         }
         return highscoreList;
     }
@@ -76,24 +80,25 @@ public class SirQuizALotService {
 
         return "wrong";
     }
-  
+
     public boolean isAdmin(String username) {
         List<User> userList = userRepo.getUserList();
 
         for (User existingUser : userList) {
-            if ( existingUser.getUsername().equalsIgnoreCase(username) && existingUser.isAdmin()) {
+            if (existingUser.getUsername().equalsIgnoreCase(username) && existingUser.isAdmin()) {
                 return true;
             }
         }
         return false;
     }
-    public void createUser (String username, String password)  {
+
+    public void createUser(String username, String password) {
         // TODO change threadlocalRandom till primärnyckel i databas
-        User user1 = new User(ThreadLocalRandom.current().nextLong(10,10000),username, password, false);
-       userRepo.addUser(user1);
+        User user1 = new User(ThreadLocalRandom.current().nextLong(10, 10000), username, password, false);
+        userRepo.addUser(user1);
     }
 
-    public void addToHighscoreList (String username) {
+    public void addToHighscoreList(String username) {
         List<User> userList = userRepo.getUserList();
         for (User user : userList)
             if (user.getUsername().equalsIgnoreCase(username)) {
@@ -102,9 +107,9 @@ public class SirQuizALotService {
                 break;
             }
     }
-  
-    public void createQuestion (Long id, String question, String alt1, String alt2, String alt3, int answer) {
-        Questions questions = new Questions(id, question, alt1, alt2,alt3, answer);
+
+    public void createQuestion(Long id, String question, String alt1, String alt2, String alt3, int answer) {
+        Questions questions = new Questions(id, question, alt1, alt2, alt3, answer);
         questionRepo.addQuestion(questions);
     }
 
@@ -112,16 +117,19 @@ public class SirQuizALotService {
         return questionRepo.getAll();
     }
 
-    public void questionRequest (Long id, String question, String alt1, String alt2, String alt3, int answer) {
+    public void questionRequest(Long id, String question, String alt1, String alt2, String alt3, int answer) {
         Questions requestQuestion = new Questions(id, question, alt1, alt2, alt3, answer);
         questionRepo.addRequest(requestQuestion);
     }
+
     public User getUser(String username) {
         List<User> userList = userRepo.getUserList();
         for (User user : userList)
             if (user.getUsername().equalsIgnoreCase(username)) {
-                return user; }
+                return user;
+            }
 
-        return null; }
+        return null;
+    }
 }
 
