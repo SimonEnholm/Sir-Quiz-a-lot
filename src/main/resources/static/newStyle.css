@@ -53,8 +53,20 @@ width: 600px;
 max-width:60%;
 align-items:center;
 margin:10px;
-
+animation-name: optionbox;
+animation-duration: 0.5s;
+animation-delay: 3s;
+animation-iteration-count: 1;
+opacity:0;
+animation-fill-mode: forwards;
 }
+
+@keyframes optionbox {
+from {opacity: 0;}
+to {opacity: 1;}
+}
+
+
 #end-button{
 background-color: #F17183;
 border-style: inset;
@@ -71,5 +83,71 @@ margin-right:auto;
 }
 .answer-button{
 margin:auto;
-
 }
+
+.question_box {
+border-radius: 20px;
+      width: 480px;
+      height: 160px;
+      background: #F5D433;
+      padding: 20px;
+      box-shadow:  0 0 0 #C2A829,
+                   0 0 0 #F7E27E,
+                    10px 10px 10px #C2A829 inset,
+                    -10px -10px 10px #F7E27E inset;
+      animation: anime 3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+ @keyframes anime {
+      0% {
+        width: 60px;
+        height: 60px;
+        background: #F5D433;
+        color: rgba(0,0,0,0);
+        box-shadow:  0 0 0 #C2A829,
+                     0 0 0 #F7E27E,
+                      10px 10px 10px #C2A829 inset,
+                      -10px -10px 10px #F7E27E inset;
+      }
+      25% {
+        width: 60px;
+        height: 60px;
+        background: #F5D433;
+        color: rgba(0,0,0,0);
+        box-shadow:  10px 10px 10px #C2A829,
+                     10px 10px 10px #F7E27E,
+                     0 0 0 #C2A829 inset,
+                     0 0 0 #F7E27E inset;
+      }
+      50% {
+        width: 60px;
+        height: 160px;
+        background: #F5D433;
+        color: rgba(0,0,0,0);
+        box-shadow:  10px 10px 10px #C2A829,
+                     10px 10px 10px #F7E27E,
+                     0 0 0 #C2A829 inset,
+                     0 0 0 #F7E27E inset;
+      }
+
+      90% {
+      width: 480px;
+              height: 160px;
+              background: #F5D433;
+              color: rgba(0,0,0,0);
+              box-shadow:  40px 40px 40px #C2A829,
+                           0 0 0 #F7E27E,
+                           0 0 0 #C2A829 inset,
+                           2px 2px 2px #F7E27E inset;
+      }
+
+      100% {
+        width: 480px;
+        height: 160px;
+        background: #F5D433;
+        color: rgba(0,0,0,1);
+        box-shadow:  40px 40px 40px #C2A829,
+                     0 0 0 #F7E27E,
+                     0 0 0 #C2A829 inset,
+                     2px 2px 2px #F7E27E inset;
+      }
