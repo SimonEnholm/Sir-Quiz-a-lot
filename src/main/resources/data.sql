@@ -58,8 +58,40 @@ VALUES ('Which of the following landscapes did the Norwegian king Sigurd Jorsala
 'Gotland',
 1);
 
+INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER)
+VALUES ('Year 2015 Jay-Z launched a music streaming service together with other artists. What is the name of the streaming service?',
+'Gotcha',
+'Tidal',
+'QueenBee',
+2);
 
+INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER)
+VALUES ('Loreen won Eurovision song contest but what placement did she get in Swedish Idol 2004?',
+'Second place',
+'Third place',
+'Fourth place',
+3);
 
+INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER)
+VALUES ('What are the four elements?',
+'Tree, Air, Fire and Water',
+'Earth, Air, Fire and Water',
+'Tree, Ether, Lightning and Ice',
+2);
+
+INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER)
+VALUES ('What is the name of the main cartoonist for Donald Duck',
+'Carl Barks',
+'Walt Disney',
+'Paul Banks',
+1);
+
+INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER)
+VALUES ('What are the roman numerals for 2022',
+'MMXXI',
+'MMXXII',
+'MMXIX',
+2);
 
 
 
