@@ -17,8 +17,8 @@ public class ReqQuestion {
     public ReqQuestion() {
     }
 
-    public ReqQuestion(Long id, String question, String answer) {
-        this.id = id;
+    public ReqQuestion( String question, String answer) {
+
         this.question = question;
         this.answer = answer;
     }
