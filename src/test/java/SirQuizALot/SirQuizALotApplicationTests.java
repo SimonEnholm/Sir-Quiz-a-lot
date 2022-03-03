@@ -64,4 +64,16 @@ class SirQuizALotApplicationTests {
         Assertions.assertEquals(true, service.isUser("JohanH", "Mittlösenord"));
     }
 
+    @Test
+    void testFindAllQ() {
+        List<Questions> qlist = service.getAllQuestions();
+        Assertions.assertEquals(13, qlist.size());
+
+        service.createQuestion("blabla","bla","blä","blo",1);
+        List<Questions> questionsList2 = service.getAllQuestions();
+        Assertions.assertEquals(14, questionsList2.size());
+
+    }
+
+
 }

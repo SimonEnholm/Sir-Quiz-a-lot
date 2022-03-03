@@ -26,6 +26,9 @@ QuestionRepository questionRepository;
     @Autowired
     Statistics statistics;
 
+    @Autowired
+    QuestionRequestRepository qrRepository;
+
     private List<Questions> questionsList = new ArrayList<>();
 
     public boolean isUser(String username, String password) {
@@ -115,9 +118,14 @@ QuestionRepository questionRepository;
         return (List<Questions>) questionRepository.findAll();
     }
 
-    public void questionRequest(Long id, String question, String alt1, String alt2, String alt3, int answer) {
-        Questions requestQuestion = new Questions(id, question, alt1, alt2, alt3, answer);
-        questionRepo.addRequest(requestQuestion);
+//    public void questionRequest(Long id, String question, String alt1, String alt2, String alt3, int answer) {
+//        Questions requestQuestion = new Questions(id, question, alt1, alt2, alt3, answer);
+//        questionRepo.addRequest(requestQuestion);
+//    }
+
+    public void questionRequest(String question, String alt1, String alt2, String alt3, int answer) {
+        Questions requestQuestion = new Questions(null, question, alt1, alt2, alt3, answer);
+        qrRepository.save(requestQuestion);
     }
 
     public User getUser(String username) {
