@@ -160,7 +160,7 @@ VALUES ('Which sport does Los Angeles Lakers and New York Knicks play?',
 
 
 INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER, CATEGORY_ID)
-VALUES ('What is the name of Andreas dog?'
+VALUES ('What is the name of Andreas dog?',
 'Micco',
 'Chicco',
 'Ticco',
@@ -168,7 +168,7 @@ VALUES ('What is the name of Andreas dog?'
 4);
 
 INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER, CATEGORY_ID)
-VALUES ('How fast did the the first person to ever get a speeding ticket go?'
+VALUES ('How fast did the the first person to ever get a speeding ticket go?',
 '8 mph',
 '24 mph',
 '17 mph',
@@ -176,20 +176,12 @@ VALUES ('How fast did the the first person to ever get a speeding ticket go?'
 4);
 
 INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER, CATEGORY_ID)
-VALUES ('What is the name of Andreas dog?'
+VALUES ('What is the name of Andreas dog?',
 'Micco',
 'Chicco',
 'Ticco',
 2,
 4);
-
-INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER, CATEGORY_ID)
-VALUES ('Dimmu Borgir is a Norwegian hard metal band- But where is the name from and what is its meaning',
-'The singers name is Dimmu Borgir - A common Norwegian name.',
-'The name is from a place on Island where there is said to be a gate to hell.',
-'Dimmu Borgir is Norwegian and means Dark Castle.',
-2,
-2);
 
 INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER, CATEGORY_ID)
 VALUES ('Walk like an Egyptian was a hit song 1986, but what group performed it',
