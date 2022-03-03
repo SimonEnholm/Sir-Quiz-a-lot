@@ -11,4 +11,6 @@ public interface QuestionRepository extends CrudRepository <Questions, Long> {
 
     @Query(value = "SELECT * FROM QUESTIONS ORDER BY RAND() LIMIT ?", nativeQuery = true)
     public List<Questions> getNumberOfRandomQuestions(int numOfQuestions);
+
+    List<Questions> findByCategoryIdEquals(int id);
 }
