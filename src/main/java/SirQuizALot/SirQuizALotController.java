@@ -144,8 +144,8 @@ public class SirQuizALotController {
     }
 
     @PostMapping("/requestnewquestion")
-    public String requestQuestion2(@RequestParam String question, @RequestParam String alt1, @RequestParam String alt2, @RequestParam String alt3, @RequestParam int answer) {
-        service.questionRequest(question, alt1, alt2, alt3, answer);
+    public String requestQuestion2(@RequestParam String question, @RequestParam String answer) {
+        service.questionRequest(question, answer);
         return "redirect:/home";
 
 

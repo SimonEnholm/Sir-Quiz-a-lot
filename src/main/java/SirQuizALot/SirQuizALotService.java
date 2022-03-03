@@ -102,8 +102,8 @@ public class SirQuizALotService {
         return (List<Questions>) questionRepository.findAll();
     }
 
-    public void questionRequest(String question, String alt1, String alt2, String alt3, int answer) {
-        Questions requestQuestion = new Questions(null, question, alt1, alt2, alt3, answer);
+    public void questionRequest(String question, String answer) {
+        Questions requestQuestion = new Questions(question, answer);
         qrRepository.save(requestQuestion);
     }
 

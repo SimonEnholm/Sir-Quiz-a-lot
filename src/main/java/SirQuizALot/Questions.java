@@ -19,6 +19,8 @@ public class Questions {
     private Integer freq2;
     @Column(name = "FREQUENCY_OPTION3")
     private Integer freq3;
+    @Column(name="Answer")
+    private String reqAnswer;
 
     public Questions() {
     }
@@ -39,6 +41,11 @@ public class Questions {
         this.option1 = option1;
         this.option2 = option2;
         this.option3 = option3;
+    }
+
+    public Questions(String question, String reqAnswer) {
+        this.question = question;
+        this.reqAnswer = reqAnswer;
     }
 
     public Long getId() {
