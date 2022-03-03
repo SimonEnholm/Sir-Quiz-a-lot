@@ -16,8 +16,6 @@ public class SirQuizALotController {
 
     @Autowired
     SirQuizALotService service;
-    @Autowired
-    UserRepo userRepo;
 
     @GetMapping("/")
     public String getLoginPage() {
