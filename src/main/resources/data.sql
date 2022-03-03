@@ -223,6 +223,45 @@ VALUES ('What African countries were never colonized?',
 1,
 1);
 
+INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER, CATEGORY_ID)
+VALUES ('This person is considered the founder of the modern day state apparatus in Sweden:',
+'Axel Oxenstierna',
+'Gustav I of Sweden',
+'Christina, Queen of Sweden',
+1,
+3);
+
+INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER, CATEGORY_ID)
+VALUES ('The Swedish king Sigismund was also king for another kingdom as Sigismund III Vasa. Which kingdom was it?',
+'Bohemia',
+'France',
+'Poland',
+3,
+3);
+
+INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER, CATEGORY_ID)
+VALUES ('During the 1650s Sweden stood for roughly 2/3 of the worlds production of this product.',
+'Iron',
+'Copper',
+'Wood',
+2,
+3);
+
+INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER, CATEGORY_ID)
+VALUES ('This island was part of Sweden for only two years',
+'Dagö',
+'Ven',
+'Bornholm',
+3,
+3);
+
+INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER, CATEGORY_ID)
+VALUES ('Finland was regarded as the eastern half of Sweden for several centuries, for approximately how many?',
+'Six',
+'Four',
+'Eight',
+1,
+3);
 
 
 
