@@ -199,11 +199,37 @@ VALUES ('Walk like an Egyptian was a hit song 1986, but what group performed it'
 1,
 2);
 
+INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER, CATEGORY_ID)
+VALUES ('In 1990 who created the World Wide Web?',
+'Tim Berners-Lee',
+'Nick Finck',
+'James Gossling',
+1,
+1);
 
+INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER, CATEGORY_ID)
+VALUES ('The scientific Revolution is the emergence of modern science during the early modern period, which transformed views of society and nature. When did it begin?',
+'1770',
+'1550',
+'1890',
+2,
+1);
 
+INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER, CATEGORY_ID)
+VALUES ('When was the first European settlement established?',
+'1100',
+'1350',
+'1604',
+3,
+1);
 
-
-
+INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER, CATEGORY_ID)
+VALUES ('What African countries were never colonized?',
+'Liberia and Ethiopia',
+'Ehiopia and Nigeria',
+'Mauritania and Senegal',
+1,
+1);
 
 
 
