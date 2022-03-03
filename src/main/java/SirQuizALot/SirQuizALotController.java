@@ -147,9 +147,10 @@ public class SirQuizALotController {
     public String requestQuestion2(@RequestParam String question, @RequestParam String alt1, @RequestParam String alt2, @RequestParam String alt3, @RequestParam int answer) {
         service.questionRequest(question, alt1, alt2, alt3, answer);
         return "redirect:/home";
+    }
 
-
-
-
+    @GetMapping("/gamemode")
+    public String playByGamemode() {
+        return "gamemodeSelect";
     }
 }
