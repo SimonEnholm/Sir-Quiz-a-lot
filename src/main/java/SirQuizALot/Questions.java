@@ -13,11 +13,11 @@ public class Questions {
     private String option2;
     private String option3;
     private Integer categoryId;
-    @Column(name = "FREQUNCY_OPTION1")
+    @Column(name = "FREQUENCY_OPTION1")
     private Integer freq1;
-    @Column(name = "FREQUNCY_OPTION2")
+    @Column(name = "FREQUENCY_OPTION2")
     private Integer freq2;
-    @Column(name = "FREQUNCY_OPTION3")
+    @Column(name = "FREQUENCY_OPTION3")
     private Integer freq3;
 
     public Questions() {
