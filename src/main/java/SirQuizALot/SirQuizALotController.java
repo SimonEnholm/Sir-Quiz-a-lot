@@ -96,7 +96,7 @@ public class SirQuizALotController {
         public String nextQuestion (HttpSession session, @RequestParam Integer option){
 
             String correctOrWrong = service.checkAnswer((String) session.getAttribute("username"),
-                    (Integer) session.getAttribute("questionId"),
+                    (Long) session.getAttribute("questionId"),
                     option);
             return "redirect:/question";
         }
