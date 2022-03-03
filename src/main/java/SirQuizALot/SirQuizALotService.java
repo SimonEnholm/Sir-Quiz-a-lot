@@ -18,16 +18,6 @@ public class SirQuizALotService {
     @Autowired
     HighScoreRepository highScoreRepository;
 
-
-    @Autowired
-    UserRepo userRepo = new UserRepo();
-
-   // @Autowired
-   // QuestionRepo questionRepo = new QuestionRepo();
-
-  // @Autowired
-  //  Statistics statistics;
-
     @Autowired
     QuestionRequestRepository qrRepository;
 
@@ -45,9 +35,6 @@ public class SirQuizALotService {
         return questionsList.remove(0);
     }
 
-    /*private void getListOfQuestions() {
-        questionsList = questionRepo.getListOfQuestions(5);
-    }*/
     public List<Questions> getListOfQuestions() {
         return questionRepository.getNumberOfRandomQuestions(5);
     }
@@ -69,6 +56,7 @@ public class SirQuizALotService {
     }
 
     public String checkAnswer(String username, long questionId, int answer) {
+        //todo fix this so it adds to the same user every time if the same username is being used
         addAnswerStatistic(questionId, answer);
         User user = userRepository.queryUsername(username.toUpperCase()).get(0);
         if (questionRepository.findById(questionId).get().getAnswer() == answer) {
@@ -80,7 +68,7 @@ public class SirQuizALotService {
 
     private void addAnswerStatistic(long questionId, int answer) {
         Questions questions = questionRepository.findById(questionId).get();
-        //Ugly if checks
+
         if (answer == 1)
             questions.addFreq1();
         else if (answer == 2)
@@ -91,14 +79,7 @@ public class SirQuizALotService {
     }
 
     public boolean isAdmin(String username) {
-        List<User> userList = userRepo.getUserList();
-
-        for (User existingUser : userList) {
-            if (existingUser.getUsername().equalsIgnoreCase(username) && existingUser.isAdmin()) {
-                return true;
-            }
-        }
-        return false;
+        return userRepository.getIsAdmin(username.toUpperCase());
     }
 
     public void createUser(String username, String password) {
@@ -121,24 +102,13 @@ public class SirQuizALotService {
         return (List<Questions>) questionRepository.findAll();
     }
 
-//    public void questionRequest(Long id, String question, String alt1, String alt2, String alt3, int answer) {
-//        Questions requestQuestion = new Questions(id, question, alt1, alt2, alt3, answer);
-//        questionRepo.addRequest(requestQuestion);
-//    }
-
     public void questionRequest(String question, String alt1, String alt2, String alt3, int answer) {
         Questions requestQuestion = new Questions(null, question, alt1, alt2, alt3, answer);
         qrRepository.save(requestQuestion);
     }
 
     public User getUser(String username) {
-        List<User> userList = userRepo.getUserList();
-        for (User user : userList)
-            if (user.getUsername().equalsIgnoreCase(username)) {
-                return user;
-            }
-
-        return null;
+        return userRepository.queryUsername(username.toUpperCase()).get(0);
     }
 }
 

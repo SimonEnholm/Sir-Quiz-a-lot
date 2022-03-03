@@ -18,4 +18,6 @@ public interface UserRepository extends CrudRepository <User,Long> {
     @Query(value = "SELECT * FROM USER WHERE UPPER(USERNAME)=?", nativeQuery = true)
     List<User> queryUsername(String username);
 
+    @Query(value = "SELECT IS_ADMIN FROM USER WHERE UPPER(USERNAME)=?", nativeQuery = true)
+    boolean getIsAdmin(String username);
 }
