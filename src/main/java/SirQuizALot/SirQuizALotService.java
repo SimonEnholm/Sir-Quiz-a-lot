@@ -1,13 +1,10 @@
 package SirQuizALot;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.server.DelegatingServerHttpResponse;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
-import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 public class SirQuizALotService {
@@ -56,11 +53,11 @@ public class SirQuizALotService {
     }
 
     public String checkAnswer(String username, long questionId, int answer) {
-        //todo fix this so it adds to the same user every time if the same username is being used
         addAnswerStatistic(questionId, answer);
         User user = userRepository.queryUsername(username.toUpperCase()).get(0);
         if (questionRepository.findById(questionId).get().getAnswer() == answer) {
             user.addPoint();
+            userRepository.save(user);
             return "correct";
         }
         return "wrong";
@@ -91,6 +88,7 @@ public class SirQuizALotService {
         User user = userRepository.queryUsername(username.toUpperCase()).get(0);
         highScoreRepository.save(new HighScore(null, user.getId(), user.getPoint()));
         user.setPoint(0);
+        userRepository.save(user);
     }
 
     public void createQuestion(String question, String alt1, String alt2, String alt3, int answer) {
