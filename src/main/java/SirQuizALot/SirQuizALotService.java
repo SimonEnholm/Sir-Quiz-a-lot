@@ -22,8 +22,8 @@ public class SirQuizALotService {
     @Autowired
     UserRepo userRepo = new UserRepo();
 
-    @Autowired
-    QuestionRepo questionRepo = new QuestionRepo();
+   // @Autowired
+   // QuestionRepo questionRepo = new QuestionRepo();
 
   // @Autowired
   //  Statistics statistics;
@@ -49,7 +49,7 @@ public class SirQuizALotService {
         questionsList = questionRepo.getListOfQuestions(5);
     }*/
     public List<Questions> getListOfQuestions() {
-        return questionRepo.getListOfQuestions(5);
+        return questionRepository.getNumberOfRandomQuestions(5);
     }
 
    /* public List<List<Integer>> getQuestionFrequencies() {
