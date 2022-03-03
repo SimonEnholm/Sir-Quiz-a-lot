@@ -11,8 +11,8 @@ public class User {
     private String password;
     @Column(name="IS_ADMIN")
     private boolean isAdmin;
-    @Transient
-    private int point;
+    @Column(name="SCORE")
+    private Integer point;
 
     public User() {
     }
@@ -47,12 +47,15 @@ public class User {
         return isAdmin;
     }
 
-    public int getPoint() {
+    public Integer getPoint() {
         return point;
     }
 
     public void addPoint() {
-        point++;
+        if (point == null)
+            point = 1;
+        else
+            point++;
     }
 
     public void setPoint(int point) {
