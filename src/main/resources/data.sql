@@ -263,6 +263,13 @@ VALUES ('Finland was regarded as the eastern half of Sweden for several centurie
 1,
 3);
 
+VALUES ('What is the name of The Beatles’ first album?',
+'Introducing... The Beatles',
+'With the Beatles',
+'Please Please Me',
+3,
+2);
+
 
 
 
