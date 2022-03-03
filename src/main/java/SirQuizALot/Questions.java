@@ -86,7 +86,7 @@ public class Questions {
     }
 
     public int getFreq1() {
-        return freq1;
+        return (freq1 != null ) ? freq1 : 0;
     }
 
     public void addFreq1() {
@@ -97,7 +97,7 @@ public class Questions {
     }
 
     public int getFreq2() {
-        return freq2;
+        return (freq2 != null ) ? freq2 : 0;
     }
 
     public void addFreq2() {
@@ -108,7 +108,7 @@ public class Questions {
     }
 
     public int getFreq3() {
-        return freq3;
+        return (freq3 != null ) ? freq3 : 0;
     }
 
     public void addFreq3() {
