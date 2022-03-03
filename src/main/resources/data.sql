@@ -11,6 +11,7 @@ INSERT INTO CATEGORY (CATEGORY_NAME) VALUES ('Music');
 INSERT INTO CATEGORY (CATEGORY_NAME) VALUES ('Sweden');
 INSERT INTO CATEGORY (CATEGORY_NAME) VALUES ('Fun facts');
 INSERT INTO CATEGORY (CATEGORY_NAME) VALUES ('Geography');
+INSERT INTO CATEGORY (CATEGORY_NAME) VALUES ('Sport');
 
 INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER, CATEGORY_ID)
 VALUES ('Which country consumes most Coca Cola per inhabitant?',
@@ -115,6 +116,48 @@ VALUES ('What are the roman numerals for 2022',
 'MMXIX',
 2,
 4);
+
+INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER, CATEGORY_ID)
+VALUES ('Who is the top goalscorer in Premier Leagues history?',
+'Cristiano Ronaldo',
+'Alan Shearer',
+'Thierry Henry',
+2,
+6);
+
+INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER, CATEGORY_ID)
+VALUES ('Which one of this sports does not exist?',
+'Handrowing',
+'Footgolf',
+'Chess boxing',
+1,
+6);
+
+INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER, CATEGORY_ID)
+VALUES ('Who has the most Grand Slam tournament titles?',
+'Rafael Nadal',
+'Björn Borg',
+'Roger Federer',
+1,
+6);
+
+INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER, CATEGORY_ID)
+VALUES ('Who has won the most Ballon dor (the worlds best footballer)?',
+'Zlatan Ibrahimovic',
+'Cristiano Ronaldo',
+'Lionel Messi',
+3,
+6);
+
+
+INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER, CATEGORY_ID)
+VALUES ('Which sport does Los Angeles Lakers and New York Knicks play?',
+'American football',
+'Basket',
+'Baseball',
+2,
+6);
+
 
 
 
