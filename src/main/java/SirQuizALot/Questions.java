@@ -1,9 +1,6 @@
 package SirQuizALot;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Questions {
@@ -15,6 +12,13 @@ public class Questions {
     private String option1;
     private String option2;
     private String option3;
+    private Integer categoryId;
+    @Column(name = "FREQUNCY_OPTION1")
+    private Integer freq1;
+    @Column(name = "FREQUNCY_OPTION2")
+    private Integer freq2;
+    @Column(name = "FREQUNCY_OPTION3")
+    private Integer freq3;
 
     public Questions() {
     }
@@ -71,5 +75,46 @@ public class Questions {
 
     public String getOption3() {
         return option3;
+    }
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public int getFreq1() {
+        return freq1;
+    }
+
+    public void addFreq1() {
+        if (freq1 == null)
+            freq1 = 1;
+        else
+            freq1++;
+    }
+
+    public int getFreq2() {
+        return freq2;
+    }
+
+    public void addFreq2() {
+        if (freq2 == null)
+            freq2 = 1;
+        else
+            freq2++;
+    }
+
+    public int getFreq3() {
+        return freq3;
+    }
+
+    public void addFreq3() {
+        if (freq3 == null)
+            freq3 = 1;
+        else
+            freq3++;
     }
 }
