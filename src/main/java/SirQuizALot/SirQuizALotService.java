@@ -103,7 +103,7 @@ public class SirQuizALotService {
     }
 
     public void questionRequest(String question, String answer) {
-        ReqQuestion requestQuestion = new ReqQuestion(null, question, answer);
+        ReqQuestion requestQuestion = new ReqQuestion( question, answer);
         qrRepository.save(requestQuestion);
     }
 
