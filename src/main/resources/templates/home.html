@@ -85,7 +85,10 @@
                 <img src="/static/RedButton.png" th:src="'/RedButton.png'" class="d-block mx-lg-auto img-fluid"
                      alt="Questionmark" width="700" height="500" loading="lazy">
 
-                <div><a href="/requestnewquestion" class="nav-link link-dark" aria-current="page">Suggest question</a></div>
+                <div th:switch="${isAdmin}">
+                    <a th:case="${true}" href="/home" class="nav-link link-dark" aria-current="page">Suggestion Box</a>
+                    <a th:case="*" href="/requestnewquestion" class="nav-link link-dark" aria-current="page">Suggest question</a>
+                </div>
             </div>
         </div>
 
