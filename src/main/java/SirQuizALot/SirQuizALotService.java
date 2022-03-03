@@ -18,6 +18,8 @@ public class SirQuizALotService {
     @Autowired
     QuestionRequestRepository qrRepository;
 
+
+
     private List<Questions> questionsList = new ArrayList<>();
 
     public boolean isUser(String username, String password) {
@@ -101,7 +103,7 @@ public class SirQuizALotService {
     }
 
     public void questionRequest(String question, String answer) {
-        Questions requestQuestion = new Questions(question, answer);
+        ReqQuestion requestQuestion = new ReqQuestion(null, question, answer);
         qrRepository.save(requestQuestion);
     }
 
