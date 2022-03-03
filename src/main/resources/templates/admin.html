@@ -37,17 +37,27 @@
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Question</th>
-                    <th scope="col">Options</th>
+                    <th scope="col" colspan="3"><center>Options [Number of Guesses]</center></th>
                     <th scope="col">Correct</th>
 
                 </tr>
                 </thead>
-                <tbody>
-                <tr th:each="question: ${questions}">
+                <tbody th:each="question: ${questions}">
+
+                <tr th:if="${question.freq1}+${question.freq2}+${question.freq3} != 0">
                     <th scope="row" th:text="${question.id}">1</th>
                     <td th:text="${question.question}">Question</td>
-                    <td th:text="${question.option1} + ' ' + ${question.option2} + ' '+ ${question.option3}">Option
-                    </td>
+                    <td th:text="${question.option1} + ' [' + (${question.freq1}*100)/(${question.freq1}+${question.freq2}+${question.freq3}) +'%]'">Option1 [1%]</td>
+                    <td th:text="${question.option2} + ' [' + (${question.freq2}*100)/(${question.freq1}+${question.freq2}+${question.freq3}) +'%]'">Option2 [2%]</td>
+                    <td th:text="${question.option3} + ' [' + (${question.freq3}*100)/(${question.freq1}+${question.freq2}+${question.freq3}) +'%]'">Option3 [3%]</td>
+                    <td th:text="${question.answer}">Answer</td>
+                </tr>
+                <tr th:if="${question.freq1}+${question.freq2}+${question.freq3} == 0">
+                    <th scope="row" th:text="${question.id}">1</th>
+                    <td th:text="${question.question}">Question</td>
+                    <td th:text="${question.option1}">Option1 [1]</td>
+                    <td th:text="${question.option2}">Option2 [2]</td>
+                    <td th:text="${question.option3}">Option3 [3]</td>
                     <td th:text="${question.answer}">Answer</td>
                 </tr>
                 </tbody>
