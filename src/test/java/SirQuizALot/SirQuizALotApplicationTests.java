@@ -75,5 +75,11 @@ class SirQuizALotApplicationTests {
 
     }
 
+    @Test
+    void testFindAllQInCategory() {
+        List<Questions> qList = service.playCategory(1);
+        Assertions.assertEquals(1, qList.size());
+    }
+
 
 }

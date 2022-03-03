@@ -118,5 +118,9 @@ public class SirQuizALotService {
 
         return null;
     }
+
+    public List<Questions> playCategory(int categoryId) {
+        return (List<Questions>) questionRepository.findByCategoryIdEquals(categoryId);
+    }
 }
 
