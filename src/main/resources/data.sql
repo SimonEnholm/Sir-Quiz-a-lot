@@ -116,6 +116,33 @@ VALUES ('What are the roman numerals for 2022',
 2,
 4);
 
+INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER, CATEGORY_ID)
+VALUES ('What is the name of Andreas dog?'
+'Micco',
+'Chicco',
+'Ticco',
+2,
+4);
+
+INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER, CATEGORY_ID)
+VALUES ('How fast did the the first person to ever get a speeding ticket go?'
+'8 mph',
+'24 mph',
+'17 mph',
+1,
+4);
+
+INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER, CATEGORY_ID)
+VALUES ('What is the name of Andreas dog?'
+'Micco',
+'Chicco',
+'Ticco',
+2,
+4);
+
+
+
+
 
 
 
