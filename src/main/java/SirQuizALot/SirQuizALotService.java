@@ -38,12 +38,7 @@ public class SirQuizALotService {
         return questionRepository.getNumberOfRandomQuestions(5);
     }
 
-   /* public List<List<Integer>> getQuestionFrequencies() {
-        // lista lika lång som samtliga frågor på formen [QuestionId, AntaletSvarOption1, AntaletSvarOption2, AntaletSvarOption3]
-        return statistics.getQuestionFrequencies();
-    }*/
-
-    public List<List<String>> getHighscoreList() {
+    public List<List<String>> getHighScoreList() {
         List<List<String>> highScoreList = new ArrayList<>();
         List<HighScore> top5Scores = highScoreRepository.queryTop5Scores();
         for (HighScore highScore : top5Scores)
@@ -86,7 +81,7 @@ public class SirQuizALotService {
       userRepository.save(user);
     }
 
-    public void addToHighscoreList(String username) {
+    public void addToHighScoreList(String username) {
         User user = userRepository.queryUsername(username.toUpperCase()).get(0);
         highScoreRepository.save(new HighScore(null, user.getId(), user.getPoint()));
         user.setPoint(0);

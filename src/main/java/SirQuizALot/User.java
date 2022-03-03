@@ -48,7 +48,7 @@ public class User {
     }
 
     public Integer getPoint() {
-        return point;
+        return (point != null) ? point : 0;
     }
 
     public void addPoint() {
