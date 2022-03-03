@@ -37,7 +37,7 @@ public class SirQuizALotController {
     public String getHomePage(HttpSession session, Model model) {
         String username = (String) session.getAttribute("username");
         if (username != null) {
-            model.addAttribute("highscore", service.getHighscoreList());
+            model.addAttribute("highscore", service.getHighScoreList());
             session.setAttribute("quiz", service.getListOfQuestions());
             if (service.isAdmin(username)) {
                 model.addAttribute("isAdmin",true);
@@ -117,8 +117,8 @@ public class SirQuizALotController {
         String username = (String) session.getAttribute("username");
         model.addAttribute("username", username);
         model.addAttribute("points",service.getUser(username).getPoint());
-        service.addToHighscoreList(username);
-        model.addAttribute("highscore", service.getHighscoreList());
+        service.addToHighScoreList(username);
+        model.addAttribute("highscore", service.getHighScoreList());
         return "highScore";
     }
 
