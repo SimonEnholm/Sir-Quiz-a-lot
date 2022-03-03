@@ -181,6 +181,21 @@ VALUES ('What is the name of Andreas dog?'
 2,
 4);
 
+INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER, CATEGORY_ID)
+VALUES ('Dimmu Borgir is a Norwegian hard metal band- But where is the name from and what is its meaning',
+'The singers name is Dimmu Borgir - A common Norwegian name.',
+'The name is from a place on Island where there is said to be a gate to hell.',
+'Dimmu Borgir is Norwegian and means Dark Castle.',
+2,
+2);
+
+INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER, CATEGORY_ID)
+VALUES ('Walk like an Egyptian was a hit song 1986, but what group performed it',
+'The Bangles',
+'Duran Duran',
+'Pointer Sisters',
+1,
+2);
 
 
 
