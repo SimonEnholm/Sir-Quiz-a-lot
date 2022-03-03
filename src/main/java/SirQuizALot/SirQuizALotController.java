@@ -3,10 +3,7 @@ package SirQuizALot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -153,4 +150,31 @@ public class SirQuizALotController {
     public String playByGamemode() {
         return "gamemodeSelect";
     }
+
+    @GetMapping("/game/{id}")
+    public String GameModeGame(@PathVariable int id, HttpSession session, Model model) {
+        String username = (String) session.getAttribute("username");
+
+        List<Questions> questionsList = (List<Questions>) service.playCategory(id);
+        boolean quizOver = false;
+        //Questions questions = questionsList.remove(0);
+
+        if (questionsList != null && questionsList.size() == 0)
+            quizOver = true;
+        else if (questionsList != null){
+            Questions questions = questionsList.remove(0);
+            model.addAttribute("question", questions);
+            session.setAttribute("questionId",questions.getId());
+            session.setAttribute("quiz", questionsList);
+        }
+
+
+        if (username != null && !quizOver) {
+            return "question";
+        }  else if (username != null && quizOver) {
+            return "redirect:/quizend";
+        } else
+            return "redirect:/";
+    }
+
 }
