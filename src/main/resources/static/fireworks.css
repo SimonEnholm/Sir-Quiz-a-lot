@@ -1,0 +1,9 @@
+.fireworks{
+    position: relative;
+}
+.explosion {
+    position: absolute;
+    width: 4px;
+    height: 80px;
+    background-color:rgba(0,0,0,2);
+}
