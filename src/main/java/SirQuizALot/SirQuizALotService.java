@@ -132,7 +132,7 @@ public class SirQuizALotService {
     }
 
     public User getUser(String username) {
-        List<User> userList = userRepo.getUserList();
+        List<User> userList = (List<User>) userRepository.findAll();
         for (User user : userList)
             if (user.getUsername().equalsIgnoreCase(username)) {
                 return user;
