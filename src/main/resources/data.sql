@@ -223,6 +223,14 @@ VALUES ('What African countries were never colonized?',
 1,
 1);
 
+INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER, CATEGORY_ID)
+VALUES ('What is the name of The Beatles’ first album?',
+'Introducing... The Beatles',
+'With the Beatles',
+'Please Please Me',
+3,
+2);
+
 
 
 
