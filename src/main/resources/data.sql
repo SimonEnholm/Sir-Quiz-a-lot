@@ -157,7 +157,9 @@ VALUES ('Which sport does Los Angeles Lakers and New York Knicks play?',
 'Baseball',
 2,
 6);
-=======
+
+
+INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER, CATEGORY_ID)
 VALUES ('What is the name of Andreas dog?'
 'Micco',
 'Chicco',
