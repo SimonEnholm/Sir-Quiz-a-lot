@@ -42,12 +42,12 @@
  .form-signin .form-control:focus {
  z-index: 2;
  }
- .form-signin input[type="email"] {
+ .form-signin input[type="InputQuest"] {
  margin-bottom: -1px;
  border-bottom-right-radius: 0;
  border-bottom-left-radius: 0;
  }
- .form-signin input[type="password"] {
+ .form-signin input[type="ReqAnswer"] {
  margin-bottom: 10px;
  border-top-left-radius: 0;
  border-top-right-radius: 0;
@@ -62,15 +62,9 @@
 
 <form class="form-signin" method="POST" action="/requestnewquestion">
     <input class="form-control" type="text" id="inputQuest" placeholder="Question" name="question"/>
-    <input type="text" id="ReqAnswer" class="form-control" placeholder="Answer" name="answer" required=""/>
-
-
-
-    <div>
-        <!-- Länk tillbaka till Login sidan -->
-        <input  class="btn btn-lg btn-primary btn-block" value="New question" type="submit"/>
-        <a class="btn btn-lg btn-primary btn-block" href="/home" type="submit">Back</a>
-    </div>
+    <input type="ReqAnswer" id="ReqAnswer" class="form-control" placeholder="Answer" name="answer" required=""/>
+    <input class="btn btn-lg btn-primary btn-block" value="New question" type="submit"/>
+    <a class="btn btn-lg btn-primary btn-block" href="/home" type="submit">Back</a>
 
 
     <p class="mt-5 mb-3 text-muted">© Sir.QuizALot 2022</p>
