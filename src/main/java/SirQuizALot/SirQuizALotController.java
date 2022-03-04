@@ -203,4 +203,14 @@ public class SirQuizALotController {
             return "redirect:/";
     }
 
+    @GetMapping("/delete/{id}")
+    public String questionBoxRemove(HttpSession session , Model model, @PathVariable Long id) {
+        String username = (String) session.getAttribute("username");
+        if (username != null && service.isAdmin(username) == true) {
+            model.addAttribute("question_box", service.removeReqQuestion(id));
+            return "redirect:/questionbox";
+        } else
+            return "redirect:/";
+    }
+
 }

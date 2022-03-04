@@ -62,5 +62,17 @@ class SirQuizALotApplicationTests {
         Assertions.assertEquals(6, qList.size());
     }
 
+    @Test
+    void testRemoveOneQuestById() {
+        service.questionRequest("blablabla?", "blabla");
+        List<ReqQuestion> rqList = service.getAllRequestQuestions();
+        Assertions.assertEquals(1,rqList.size());
+
+        service.removeReqQuestion(1L);
+        List<ReqQuestion> rqList2 = service.getAllRequestQuestions();
+        Assertions.assertEquals(0,rqList2.size());
+
+    }
+
 
 }
