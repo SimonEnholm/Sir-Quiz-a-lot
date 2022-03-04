@@ -121,5 +121,9 @@ public class SirQuizALotService {
     public List<Questions> playCategory(int categoryId) {
         return (List<Questions>) questionRepository.findByCategoryIdEquals(categoryId);
     }
+
+    public List<Questions> getAllQuestionsRandom() {
+        return questionRepository.findAllRandomOrder();
+    }
 }
 
