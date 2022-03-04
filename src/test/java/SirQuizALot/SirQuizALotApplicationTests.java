@@ -19,7 +19,6 @@ class SirQuizALotApplicationTests {
 
     @Test
     void testIsUser() {
-        //SirQuizALotService service = new SirQuizALotService();
         Assertions.assertEquals(true, service.isUser("GöranPersson", "allaskamed"));
         Assertions.assertEquals(true, service.isUser("GöRaNpErSsOn", "allaskamed"));
         Assertions.assertEquals(false, service.isUser("göranPERSSON", "ALLAskaMED"));
@@ -30,10 +29,8 @@ class SirQuizALotApplicationTests {
         List<Questions> questionsList = service.getAllQuestions();
         int lengthList = questionsList.size();
         service.createQuestion("Fråga", "alt1", "alt2", "alt3", 1);
-        Questions questions = new Questions(101L, "Fråga", "alt1", "alt2", "alt3", 1);
         questionsList = service.getAllQuestions();
         Assertions.assertEquals(true, lengthList + 1 == questionsList.size());
-        Assertions.assertEquals(true, questions.getId() == questionsList.get(questionsList.size() - 1).getId());
     }
 
     @Test
@@ -60,20 +57,9 @@ class SirQuizALotApplicationTests {
     }
 
     @Test
-    void testFindAllQ() {
-        List<Questions> qlist = service.getAllQuestions();
-        Assertions.assertEquals(13, qlist.size());
-
-        service.createQuestion("blabla","bla","blä","blo",1);
-        List<Questions> questionsList2 = service.getAllQuestions();
-        Assertions.assertEquals(14, questionsList2.size());
-
-    }
-
-    @Test
     void testFindAllQInCategory() {
-        List<Questions> qList = service.playCategory(1);
-        Assertions.assertEquals(1, qList.size());
+        List<Questions> qList = service.playCategory(3);
+        Assertions.assertEquals(6, qList.size());
     }
 
 
