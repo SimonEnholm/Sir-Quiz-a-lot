@@ -66,7 +66,6 @@ public class SirQuizALotController {
 
         List<Questions> questionsList = (List<Questions>) session.getAttribute("quiz");
         boolean quizOver = false;
-        //Questions questions = questionsList.remove(0);
 
         if (questionsList != null && questionsList.size() == 0)
             quizOver = true;
@@ -77,6 +76,8 @@ public class SirQuizALotController {
             session.setAttribute("quiz", questionsList);
         }
 
+        if (session.getAttribute("isCorrect") != null)
+            model.addAttribute("isCorrect", session.getAttribute("isCorrect"));
 
         if (username != null && !quizOver) {
             return "question";
@@ -87,14 +88,14 @@ public class SirQuizALotController {
     }
 
     @PostMapping("/question")
+    public String nextQuestion (HttpSession session, @RequestParam Integer option){
 
-        public String nextQuestion (HttpSession session, @RequestParam Integer option){
-
-            String correctOrWrong = service.checkAnswer((String) session.getAttribute("username"),
-                    (Long) session.getAttribute("questionId"),
-                    option);
-            return "redirect:/question";
-        }
+        String correctOrWrong = service.checkAnswer((String) session.getAttribute("username"),
+                (Long) session.getAttribute("questionId"),
+                option);
+        session.setAttribute("isCorrect", correctOrWrong);
+        return "redirect:/question";
+    }
 
 
     @GetMapping("/newaccount")
@@ -112,6 +113,7 @@ public class SirQuizALotController {
     @GetMapping("/quizend")
     public String quizend(HttpSession session, Model model) {
         String username = (String) session.getAttribute("username");
+        session.removeAttribute("isCorrect");
         model.addAttribute("username", username);
         model.addAttribute("points",service.getUser(username).getPoint());
         service.addToHighScoreList(username);

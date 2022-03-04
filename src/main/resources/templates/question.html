@@ -18,6 +18,13 @@
     </div>
 </div>
 
+<div th:if="${isCorrect} == 'correct'" class="alert alert-success">
+    <center><strong>Correct!</strong></center>
+</div>
+<div th:if="${isCorrect} == 'wrong'" class="alert alert-danger">
+    <center><strong>Wrong!</strong></center>
+</div>
+
 <form method="POST" action="/question">
 
 <div class="box">

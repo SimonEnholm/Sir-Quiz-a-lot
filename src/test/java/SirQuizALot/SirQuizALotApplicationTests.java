@@ -1,9 +1,6 @@
 package SirQuizALot;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.junit.jupiter.api.Assertions;
@@ -30,7 +27,6 @@ class SirQuizALotApplicationTests {
 
     @Test
     void testCreateAQuestion() {
-        SirQuizALotService service = new SirQuizALotService();
         List<Questions> questionsList = service.getAllQuestions();
         int lengthList = questionsList.size();
         service.createQuestion("Fråga", "alt1", "alt2", "alt3", 1);
@@ -42,7 +38,6 @@ class SirQuizALotApplicationTests {
 
     @Test
     void testGetQuizList() {
-        SirQuizALotService service = new SirQuizALotService();
         List<Questions> questionsList = service.getListOfQuestions();
         List<Questions> questionsList2 = service.getListOfQuestions();
 
