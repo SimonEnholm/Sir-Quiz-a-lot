@@ -122,9 +122,15 @@ public class SirQuizALotService {
         return (List<Questions>) questionRepository.findByCategoryIdEquals(categoryId);
     }
 
+
     public List<ReqQuestion> removeReqQuestion(Long id) {
         qrRepository.deleteById(id);
         return (List<ReqQuestion>) qrRepository.findAll();
+    }
+  
+    public List<Questions> getAllQuestionsRandom() {
+        return questionRepository.findAllRandomOrder();
+
     }
 }
 
