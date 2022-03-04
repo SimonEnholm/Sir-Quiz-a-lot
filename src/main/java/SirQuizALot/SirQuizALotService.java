@@ -102,6 +102,10 @@ public class SirQuizALotService {
         qrRepository.save(requestQuestion);
     }
 
+    public List<ReqQuestion> getAllRequestQuestions() {
+        return (List<ReqQuestion>) qrRepository.findAll();
+    }
+
     public User getUser(String username) {
 
         //return userRepository.queryUsername(username.toUpperCase()).get(0);
