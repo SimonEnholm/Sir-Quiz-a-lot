@@ -38,6 +38,8 @@
                     <th scope="col">Id</th>
                     <th scope="col">Question</th>
                     <th scope="col">Correct</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
 
                 </tr>
                 </thead>
@@ -47,6 +49,13 @@
                     <th scope="row" th:text="${question.id}">1</th>
                     <td  th:text="${question.question}">Question</td>
                     <td  th:text="${question.answer}">Answer</td>
+                    <td>
+                        <a th:href="'/newquestion'"> <img src="/static/check.png" th:src="'/check.png'" alt="" width="25" height="auto"> </a>
+                    </td>
+                    <td>
+                        <a th:href="'/delete/' + ${question.id}"> <img src="/static/trash.png" th:src="'/trash.png'" alt="" width="25" height="auto"> </a>
+
+                    </td>
                 </tr>
 
                 </tbody>
