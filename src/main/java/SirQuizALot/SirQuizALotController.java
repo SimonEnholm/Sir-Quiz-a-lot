@@ -175,4 +175,19 @@ public class SirQuizALotController {
             return "redirect:/";
     }
 
+//    @GetMapping("/questionbox")
+//    public String questionbox() {
+//        return "questionbox";
+//    }
+
+    @GetMapping("/questionbox")
+    public String questionBox(HttpSession session, Model model) {
+        String username = (String) session.getAttribute("username");
+        if (username != null && service.isAdmin(username) == true) {
+            model.addAttribute("question_box", service.getAllRequestQuestions());
+            return "questionbox";
+        } else
+            return "redirect:/";
+    }
+
 }

@@ -30,38 +30,25 @@
     <h1 class="display-5" th:text="'Welcome ' + ${session.username} + '!'">Welcome NAMEPLACEHOLDER</h1>
     <div class="align-items-center">
         <div class="col-lg-10">
-            <h5 class="display-5">All questions</h5>
+            <h5 class="display-5">Suggested questions</h5>
             <p>
             <table class="table table-striped table-secondary">
                 <thead>
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Question</th>
-                    <th scope="col" colspan="3"><center>Options [Number of Guesses]</center></th>
                     <th scope="col">Correct</th>
 
                 </tr>
                 </thead>
-                <tbody th:each="question: ${questions}">
+                <tbody th:each="question: ${question_box}">
 
-                <tr th:if="${question.freq1}+${question.freq2}+${question.freq3} != 0">
+                <tr>
                     <th scope="row" th:text="${question.id}">1</th>
-                    <span th:with="total = ${question.freq1}+${question.freq2}+${question.freq3}">
-                    <td th:text="${question.question}">Question</td>
-                    <td th:text="${question.option1} + ' [' + ${question.freq1}*100/${total} +'%]'">Option1 [1%]</td>
-                    <td th:text="${question.option2} + ' [' + ${question.freq2}*100/${total} +'%]'">Option2 [2%]</td>
-                    <td th:text="${question.option3} + ' [' + ${question.freq3}*100/${total} +'%]'">Option3 [3%]</td>
-                    <td th:text="${question.answer}">Answer</td>
-                    </span>
+                    <td  th:text="${question.question}">Question</td>
+                    <td  th:text="${question.answer}">Answer</td>
                 </tr>
-                <tr th:if="${question.freq1}+${question.freq2}+${question.freq3} == 0">
-                    <th scope="row" th:text="${question.id}">1</th>
-                    <td th:text="${question.question}">Question</td>
-                    <td th:text="${question.option1}">Option1 [1]</td>
-                    <td th:text="${question.option2}">Option2 [2]</td>
-                    <td th:text="${question.option3}">Option3 [3]</td>
-                    <td th:text="${question.answer}">Answer</td>
-                </tr>
+
                 </tbody>
             </table>
             </p>
