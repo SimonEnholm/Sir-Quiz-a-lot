@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -94,6 +95,9 @@ public class SirQuizALotController {
                 (Long) session.getAttribute("questionId"),
                 option);
         session.setAttribute("isCorrect", correctOrWrong);
+        if (session.getAttribute("isAlive") != null && correctOrWrong.equals("wrong")) // SuddenDeath GameOver
+            return "redirect:/quizend";
+
         return "redirect:/question";
     }
 
@@ -155,7 +159,13 @@ public class SirQuizALotController {
     public String GameModeGame(@PathVariable int id, HttpSession session, Model model) {
         String username = (String) session.getAttribute("username");
 
-        List<Questions> questionsList = (List<Questions>) service.playCategory(id);
+        List<Questions> questionsList = new ArrayList<>();
+        if (id == 100) {
+            questionsList = (List<Questions>) service.getAllQuestionsRandom();
+            session.setAttribute("isAlive", true);
+        } else {
+            questionsList = (List<Questions>) service.playCategory(id);
+        }
         boolean quizOver = false;
         //Questions questions = questionsList.remove(0);
 
