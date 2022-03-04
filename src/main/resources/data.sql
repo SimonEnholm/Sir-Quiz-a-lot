@@ -263,6 +263,8 @@ VALUES ('Finland was regarded as the eastern half of Sweden for several centurie
 1,
 3);
 
+
+INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER, CATEGORY_ID)
 VALUES ('What is the name of The Beatles’ first album?',
 'Introducing... The Beatles',
 'With the Beatles',
@@ -270,6 +272,29 @@ VALUES ('What is the name of The Beatles’ first album?',
 3,
 2);
 
+INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER, CATEGORY_ID)
+VALUES ('What is the currency in Myanmar',
+'Won',
+'Sol',
+'Kyat',
+3,
+5);
+
+INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER, CATEGORY_ID)
+VALUES ('Which is the worlds largest port',
+'Port of Shanghai',
+'Port of Rotterdam',
+'Port of Singapore',
+1,
+5);
+
+INSERT INTO QUESTIONS (QUESTION, OPTION1, OPTION2, OPTION3, ANSWER, CATEGORY_ID)
+VALUES ('Which country drinks the most beer per capita',
+'Germany',
+'Czech Republic',
+'United Kingdom',
+2,
+5);
 
 
 
